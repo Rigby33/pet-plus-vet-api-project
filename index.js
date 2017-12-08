@@ -21,18 +21,18 @@ function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, p
   });
 }
 
-function getDataFromGooglePlacesApi() {
-  const paramsObj2 = {
-    query: 'veterinarian in Indiana',
-    key: googlePlaceApiKey,
-    callback: '?'
-  };
-  // let queryParams = buildQueryString(paramsObj2);
-  // let url = googlePlacesApiUrl + buildQueryString(paramsObj2);
-  $.getJSON(googlePlacesApiUrl, paramsObj2, function (data) {
-    console.log(data.results.name);
-});
-}
+// function getDataFromGooglePlacesApi() {
+//   const paramsObj2 = {
+//     query: 'veterinarian in Indiana',
+//     key: googlePlaceApiKey,
+//     callback: '?'
+//   };
+//   // let queryParams = buildQueryString(paramsObj2);
+//   // let url = googlePlacesApiUrl + buildQueryString(paramsObj2);
+//   $.getJSON(googlePlacesApiUrl, paramsObj2, function (data) {
+//     console.log(data.results.name);
+// });
+// }
 
 function buildQueryString(myObject) {
   let queryString = Object.keys(myObject).map( (e) => {
@@ -71,7 +71,6 @@ function searchForAPet() {
     const zipCode = $('.myZipCode').val();
     const age = $('.agoOfAnimal').val();
     getDataFromPetfinderApi(animal, size, sex, zipCode, age);
-    getDataFromGooglePlacesApi()
   });
 }
 
