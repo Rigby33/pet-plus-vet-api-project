@@ -25,6 +25,13 @@ function initMap () {
           radius: '100',
           query: 'Veterinarian',
         };
+        if ($('.typeOfAnimal').val() == 'bird' || $('.typeOfAnimal').val() == 'reptile' || $('.typeOfAnimal').val() == 'smallfurry') {
+          var request = {
+              location: centerMap,
+              radius: '100',
+              query: 'Exotic Veterinarian',
+            };
+        }
         service.textSearch(request, callback);
     });
   });
@@ -51,7 +58,6 @@ function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
-      console.log(results[i]);
       createMarker(results[i])
     }
   }
