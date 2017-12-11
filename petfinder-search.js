@@ -53,40 +53,52 @@ function buildQueryString(myObject) {
 
 function handlePets(results) {
   if (results.contact.phone.$t == undefined && results.description.$t == undefined) {
-    return `<h2>${results.name.$t}</h2>
-      <img src="${results.media.photos.photo[1].$t}"/>
+    return `<div class="pet">
+      <h2>${results.name.$t}</h2>
+      <img src="${results.media.photos.photo[2].$t}"/>
       <h3>Contact Info</h3>
-      <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}<a></p>`;
+      <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}<a></p>
+      </div>`;
   } else if (results.contact.email.$t == undefined && results.description.$t == undefined) {
-    return `<h2>${results.name.$t}</h2>
-      <img src="${results.media.photos.photo[1].$t}"/>
+    return `<div class="pet">
+      <h2>${results.name.$t}</h2>
+      <img src="${results.media.photos.photo[2].$t}"/>
       <h3>Contact Info</h3>
-      <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>`;
+      <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>
+      </div>`;
   } else if (results.description.$t == undefined) {
-      return `<h2>${results.name.$t}</h2>
-        <img src="${results.media.photos.photo[1].$t}"/>
+      return `<div class="pet">
+        <h2>${results.name.$t}</h2>
+        <img src="${results.media.photos.photo[2].$t}"/>
         <h3>Contact Info</h3>
         <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}<a></p>
-        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>`;
+        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>
+        </div>`;
     } else if (results.contact.phone.$t == undefined) {
-      return `<h2>${results.name.$t}</h2>
-        <img src="${results.media.photos.photo[1].$t}"/>
-        <p>${results.description.$t}</p>
-        <h3>Contact Info</h3>
-        <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}<a></p>`;
-    } else if (results.contact.email.$t == undefined) {
-      return `<h2>${results.name.$t}</h2>
-        <img src="${results.media.photos.photo[1].$t}"/>
-        <p>${results.description.$t}</p>
-        <h3>Contact Info</h3>
-        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>`;
-    } else {
-      return `<h2>${results.name.$t}</h2>
-        <img src="${results.media.photos.photo[1].$t}"/>
+      return `<div class="pet">
+        <h2>${results.name.$t}</h2>
+        <img src="${results.media.photos.photo[2].$t}"/>
         <p>${results.description.$t}</p>
         <h3>Contact Info</h3>
         <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}<a></p>
-        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>`;
+        </div>`;
+    } else if (results.contact.email.$t == undefined) {
+      return `<div class="pet">
+        <h2>${results.name.$t}</h2>
+        <img src="${results.media.photos.photo[2].$t}"/>
+        <p>${results.description.$t}</p>
+        <h3>Contact Info</h3>
+        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>
+        </div>`;
+    } else {
+      return `<div class="pet">
+        <h2>${results.name.$t}</h2>
+        <img src="${results.media.photos.photo[2].$t}"/>
+        <p>${results.description.$t}</p>
+        <h3>Contact Info</h3>
+        <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}<a></p>
+        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>
+        </div>`;
     }
   }
 
