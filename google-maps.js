@@ -12,7 +12,8 @@ function initMap () {
 
   $("form").on("submit", function(event) {
     event.preventDefault();
-    var city = $('.myZipCode').val();
+    $('#map').show();
+    var city = $('.myLocation').val();
     $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address="+encodeURIComponent(city), function(val) {
       var location = val.results[0].geometry.location;
       centerMap = {lat: location.lat, lng: location.lng};

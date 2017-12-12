@@ -7,12 +7,13 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC3RlzZbzH_9ImAcjhqAaCBRT4en3gFFE&libraries=places&callback=initMap" async defer></script>
     <script src="petfinder-search.js"></script>
     <script src="google-maps.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700" rel="stylesheet">
     <link href="styles.css" rel="stylesheet"/>
   </head>
   <body>
     <form>
       <label>My Zip Code</label>
-      <input type="number" class="myZipCode">
+      <input type="text" class="myLocation">
       <label>Type of Animal</label>
       <select name="animals" class="typeOfAnimal">
     <option value="bird">Bird</option>
@@ -42,10 +43,10 @@
   </select>
   <button type="submit">Submit</button>
     </form>
+    <section>
     <div class="results">
     </div>
 <div id="map"></div>
-</div>
-</div>
+</section>
   </body>
 </html>
