@@ -7,46 +7,54 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC3RlzZbzH_9ImAcjhqAaCBRT4en3gFFE&libraries=places&callback=initMap" async defer></script>
     <script src="petfinder-search.js"></script>
     <script src="google-maps.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700" rel="stylesheet">
+    <script src="index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
+    <script src="https://use.fontawesome.com/e79a343372.js"></script>
     <link href="styles.css" rel="stylesheet"/>
   </head>
   <body>
     <form>
-      <label>My Zip Code</label>
-      <input type="text" class="myLocation">
-      <label>Type of Animal</label>
-      <select name="animals" class="typeOfAnimal">
-    <option value="bird">Bird</option>
-    <option value="cat">Cat</option>
-    <option value="dog">Dog</option>
-    <option value="reptile">Reptile</option>
-    <option value="smallfurry">Small & Furry</option>
-  </select>
-  <label>Size of Animal</label>
-  <select name="size" class="sizeOfAnimal">
-    <option value="S">Small</option>
-    <option value="M">Medium</option>
-    <option value="L">Large</option>
-    <option value="XL">Extra-large</option>
-  </select>
-  <label>Sex of Animal</label>
-  <select name="sex" class="sexOfAnimal">
-    <option value="F">Female</option>
-    <option value="M">Male</option>
-  </select>
-  <label>Age of Animal</label>
-  <select name="age" class="agoOfAnimal">
-    <option value="Baby">Baby</option>
-    <option value="Young">Young</option>
-    <option value="Adult">Adult</option>
-    <option value="Senior">Senior</option>
-  </select>
-  <button type="submit">Submit</button>
+      <label>What type of animal are you looking for?</label>
+      <div class="animalType">
+        <input type="radio" value="reptile" id="reptile" name="typeOfAnimal">
+        <label class="animal reptile" for="reptile"></label>
+        <input type="radio" value="cat" id="cat" name="typeOfAnimal">
+        <label class="animal cat" for="cat"></label>
+        <input type="radio" value="dog" id="dog" name="typeOfAnimal">
+        <label class="animal dog" for="dog"></label>
+        <input type="radio" value="smallfurry" id="smallfurry" name="typeOfAnimal">
+        <label class="animal smallfurry" for="smallfurry"></label>
+        <input type="radio" value="bird" id="bird" name="typeOfAnimal">
+        <label class="animal bird" for="bird"></label>
+      </div>
+      <label>What is your location?</label>
+      <input type="text" class="myLocation" placeholder="City, State or Zip Code">
+      <div class="sizeAgeSex">
+      <label>Size of Animal</label>
+      <select name="size" class="sizeOfAnimal">
+        <option value="S">Small</option>
+        <option value="M">Medium</option>
+        <option value="L">Large</option>
+        <option value="XL">Extra-large</option>
+      </select>
+      <label>Sex of Animal</label>
+      <select name="sex" class="sexOfAnimal">
+        <option value="F">Female</option>
+        <option value="M">Male</option>
+      </select>
+      <label>Age of Animal</label>
+      <select name="age" class="agoOfAnimal">
+        <option value="Baby">Baby</option>
+        <option value="Young">Young</option>
+        <option value="Adult">Adult</option>
+        <option value="Senior">Senior</option>
+      </select>
+    </div>
+      <button type="submit">Submit</button>
     </form>
     <section>
-    <div class="results">
-    </div>
-<div id="map"></div>
-</section>
+      <div class="results"></div>
+      <div id="map"></div>
+    </section>
   </body>
 </html>

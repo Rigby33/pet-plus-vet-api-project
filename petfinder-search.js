@@ -14,13 +14,8 @@ function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, p
   };
   let queryParams = buildQueryString(paramsObj);
   let url = petfinderApiUrl + queryParams;
-  // $.getJSON(url, function (data) {
-  //   handlePets(data);
-  // });
   $.getJSON(url, callback);
 }
-
-
 
 function buildQueryString(myObject) {
   let queryString = Object.keys(myObject).map( (e) => {
@@ -30,102 +25,100 @@ function buildQueryString(myObject) {
   return queryString;
 }
 
-// function handlePets(pets) {
-//   const listOfPets = pets.petfinder.pets.pet;
-//   console.log(listOfPets);
-//   for (let i = 0; i < listOfPets.length; i++) {
-//     if (pets.petfinder.pets.pet[i].description.$t == undefined) {
-//       $('.results').append(`<h2>${pets.petfinder.pets.pet[i].name.$t}</h2>
-//         <img src="${pets.petfinder.pets.pet[i].media.photos.photo[1].$t}"/>
-//         <h3>Contact Info</h3>
-//         <p>email: <a href="mailto:${pets.petfinder.pets.pet[i].contact.email.$t}">${pets.petfinder.pets.pet[i].contact.email.$t}<a></p>
-//         <p>phone: <a href="tel:${pets.petfinder.pets.pet[i].contact.phone.$t}">${pets.petfinder.pets.pet[i].contact.phone.$t}<a></p>`);
-//     } else {
-//       $('.results').append(`<p>${pets.petfinder.pets.pet[i].name.$t}</p>
-//         <img src="${pets.petfinder.pets.pet[i].media.photos.photo[1].$t}"/>
-//         <p>${pets.petfinder.pets.pet[i].description.$t}</p>
-//         <h3>Contact Info</h3>
-//         <p>email: <a href="mailto:${pets.petfinder.pets.pet[i].contact.email.$t}">${pets.petfinder.pets.pet[i].contact.email.$t}<a></p>
-//         <p>phone: <a href="tel:${pets.petfinder.pets.pet[i].contact.phone.$t}">${pets.petfinder.pets.pet[i].contact.phone.$t}<a></p>`);
-//       }
-//     }
-//   }
-
 function handlePets(results) {
   if (results.media.photos == undefined && results.description.$t == undefined) {
     return `<div class="pet">
       <h2>${results.name.$t}</h2>
       <h3>Contact Info</h3>
-      <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>
-      </div>`;
+      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
+    </div>`;
   } else if (results.media.photos == undefined) {
     return `<div class="pet">
       <h2>${results.name.$t}</h2>
+      <div class="petDescription">
+      <button class="clickToExpand">View more details</button>
       <p>${results.description.$t}</p>
+    </div>
       <h3>Contact Info</h3>
-      <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>
-      </div>`;
+      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
+    </div>`;
   } else if (results.contact.phone.$t == undefined && results.description.$t == undefined) {
     return `<div class="pet">
       <h2>${results.name.$t}</h2>
-      <div class="petImage"><img src="${results.media.photos.photo[2].$t}"/></div>
+      <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
       <h3>Contact Info</h3>
-      <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}<a></p>
-      </div>`;
+      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+    </div>`;
   } else if (results.contact.email.$t == undefined && results.description.$t == undefined) {
     return `<div class="pet">
       <h2>${results.name.$t}</h2>
-      <div class="petImage"><img src="${results.media.photos.photo[2].$t}"/></div>
+      <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
       <h3>Contact Info</h3>
-      <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>
-      </div>`;
+      <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
+    </div>`;
   } else if (results.description.$t == undefined) {
       return `<div class="pet">
         <h2>${results.name.$t}</h2>
-        <div class="petImage"><img src="${results.media.photos.photo[2].$t}"/></div>
+        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
         <h3>Contact Info</h3>
-        <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}<a></p>
-        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>
-        </div>`;
+        <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
+      </div>`;
     } else if (results.contact.phone.$t == undefined) {
       return `<div class="pet">
         <h2>${results.name.$t}</h2>
-        <div class="petImage"><img src="${results.media.photos.photo[2].$t}"/></div>
+        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        <div class="petDescription">
+        <button class="clickToExpand">View more details</button>
         <p>${results.description.$t}</p>
+      </div>
         <h3>Contact Info</h3>
-        <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}<a></p>
-        </div>`;
+        <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      </div>`;
     } else if (results.contact.email.$t == undefined) {
       return `<div class="pet">
         <h2>${results.name.$t}</h2>
-        <div class="petImage"><img src="${results.media.photos.photo[2].$t}"/></div>
+        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        <div class="petDescription">
+        <button class="clickToExpand">View more details</button>
         <p>${results.description.$t}</p>
+      </div>
         <h3>Contact Info</h3>
-        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>
-        </div>`;
+        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
+      </div>`;
     } else {
       return `<div class="pet">
         <h2>${results.name.$t}</h2>
-        <div class="petImage"><img src="${results.media.photos.photo[2].$t}"/></div>
+        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        <div class="petDescription">
+        <button class="clickToExpand">View more details</button>
         <p>${results.description.$t}</p>
+      </div>
         <h3>Contact Info</h3>
-        <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}<a></p>
-        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}<a></p>
-        </div>`;
+        <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
+      </div>`;
     }
   }
 
 function returnResults(data) {
-  console.log(data.petfinder.pets.pet);
-  let petResults = data.petfinder.pets.pet;
-  const petfinderResults = petResults.map((item, index) => handlePets(item));
-  $('.results').html(petfinderResults);
+  const petResults = data.petfinder.pets.pet;
+  let numberOfPets = data.petfinder.lastOffset.$t;
+  if (numberOfPets == '1') {
+    let petfinderResults = handlePets(petResults);
+    $('.results').html(petfinderResults);
+  } else {
+    let petfinderResults = petResults.map((item, index) => handlePets(item));
+    $('.results').html(petfinderResults);
+  }
 }
 
 function searchForAPet() {
   $('form').submit(function (event) {
     event.preventDefault();
-    const animal = $('.typeOfAnimal').val();
+    const animal = $('.animalType > input:checked').val();
     const size = $('.sizeOfAnimal').val();
     const sex = $('.sexOfAnimal').val();
     const myLocation = $('.myLocation').val();
