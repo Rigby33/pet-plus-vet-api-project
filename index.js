@@ -13,6 +13,6 @@ function expandDescription() {
 //   });
 // }
 
-$(addActiveToRadio);
+// $(addActiveToRadio);
 
 $(expandDescription);
