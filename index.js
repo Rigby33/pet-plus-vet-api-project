@@ -5,14 +5,23 @@ function expandDescription() {
   });
 }
 
-// function addActiveToRadio() {
-//   $('form').on('click', '.animalType > input', function() {
-//     if ($('.animalType > input').is('[checked]')) {
-//       console.log('bye')
-//     }
-//   });
-// }
+function slideShow() {
+  let activeDiv = 1;
+  showDiv(activeDiv);
+  const timer = setInterval(changeDiv, 5000);
+  function changeDiv() {
+    activeDiv++;
+    if (activeDiv == 6) {
+      activeDiv = 1;
+    }
+    showDiv(activeDiv);
+  }
+  function showDiv(num) {
+    $('.slide').fadeOut(2000);
+    $('.slide' + num).fadeIn(1000);
+  }
+}
 
-$(addActiveToRadio);
+$(slideShow);
 
 $(expandDescription);
