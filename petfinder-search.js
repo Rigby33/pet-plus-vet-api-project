@@ -10,7 +10,8 @@ function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, p
     sex: pickSex,
     location: enterLocation,
     age: pickAge,
-    callback: '?'
+    offest: '25',
+    callback: '?',
   };
   let queryParams = buildQueryString(paramsObj);
   let url = petfinderApiUrl + queryParams;
@@ -29,6 +30,7 @@ function handlePets(results) {
   if (results.media.photos == undefined && results.description.$t == undefined) {
     return `<div class="pet">
       <h2>${results.name.$t}</h2>
+      <div class="petImage" style="background: url('images/default-image.jpg') center center/cover no-repeat"></div>
       <h3>Contact Info</h3>
       <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
@@ -36,6 +38,7 @@ function handlePets(results) {
   } else if (results.media.photos == undefined) {
     return `<div class="pet">
       <h2>${results.name.$t}</h2>
+      <div class="petImage" style="background: url('images/default-image.jpg') center center/cover no-repeat"></div>
       <div class="petDescription">
       <button class="clickToExpand">View more details</button>
       <p>${results.description.$t}</p>
@@ -118,11 +121,22 @@ function returnResults(data) {
 function searchForAPet() {
   $('form').submit(function (event) {
     event.preventDefault();
-    const animal = $('.animalType > input:checked').val();
-    const size = $('.sizeOfAnimal').val();
-    const sex = $('.sexOfAnimal').val();
-    const myLocation = $('.myLocation').val();
-    const age = $('.agoOfAnimal').val();
+    let animal = $('.animalType > input:checked').val();
+    let size = $('.animalSize > input:checked').val();
+    if (! $('.animalSize > input').is(':checked')) {
+      size = '';
+    }
+    let sex = $('.mfDiv > input:checked').val();
+    if (! $('.mfDiv > input').is(':checked')) {
+      sex = '';
+    }
+    let myLocation = $('.myLocation').val();
+    let age = $('.animalAgeDiv > input:checked').val();
+    if (! $('.animalAgeDiv > input').is(':checked')) {
+      age = '';
+    }
+    $('.petvetbuttons').show();
+    $('.results').removeClass('hidden');
     getDataFromPetfinderApi(animal, size, sex, myLocation, age, returnResults);
   });
 }

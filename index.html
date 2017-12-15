@@ -13,47 +13,86 @@
     <link href="styles.css" rel="stylesheet"/>
   </head>
   <body>
-    <form>
-      <label>What type of animal are you looking for?</label>
-      <div class="animalType">
-        <input type="radio" value="reptile" id="reptile" name="typeOfAnimal">
-        <label class="animal reptile" for="reptile"></label>
-        <input type="radio" value="cat" id="cat" name="typeOfAnimal">
-        <label class="animal cat" for="cat"></label>
-        <input type="radio" value="dog" id="dog" name="typeOfAnimal">
-        <label class="animal dog" for="dog"></label>
-        <input type="radio" value="smallfurry" id="smallfurry" name="typeOfAnimal">
-        <label class="animal smallfurry" for="smallfurry"></label>
-        <input type="radio" value="bird" id="bird" name="typeOfAnimal">
-        <label class="animal bird" for="bird"></label>
+    <header>
+      <img src="images/logo.png" alt="pet plus vet"/>
+    </header>
+    <main>
+      <div class="overlay">
+      <div class="introText">
+        <h1>Thinking of adding a new furry, scaly, or feathered member to your family?</h1>
+        <p>One of the most important things to think about when adopting a pet is where you will be taking them to the vet. On Pet + Vet you can find animals to adopt in your area and veterinarians near you.</p>
+        <a href="#findapet" class="heroButton">Find a Pet</a>
       </div>
-      <label>What is your location?</label>
-      <input type="text" class="myLocation" placeholder="City, State or Zip Code">
-      <div class="sizeAgeSex">
-      <label>Size of Animal</label>
-      <select name="size" class="sizeOfAnimal">
-        <option value="S">Small</option>
-        <option value="M">Medium</option>
-        <option value="L">Large</option>
-        <option value="XL">Extra-large</option>
-      </select>
-      <label>Sex of Animal</label>
-      <select name="sex" class="sexOfAnimal">
-        <option value="F">Female</option>
-        <option value="M">Male</option>
-      </select>
-      <label>Age of Animal</label>
-      <select name="age" class="agoOfAnimal">
-        <option value="Baby">Baby</option>
-        <option value="Young">Young</option>
-        <option value="Adult">Adult</option>
-        <option value="Senior">Senior</option>
-      </select>
     </div>
-      <button type="submit">Submit</button>
+    <div class="slide slide1"></div>
+    <div class="slide slide2"></div>
+    <div class="slide slide3"></div>
+    <div class="slide slide4"></div>
+    <div class="slide slide5"></div>
+    </main>
+    <div id="findapet" class="animalForm">
+    <form>
+      <label><h2>What type of animal are you looking for?</h2></label>
+      <div class="animalType">
+        <input type="radio" value="reptile" id="reptile" name="typeOfAnimal" required>
+        <label class="animal reptile radioImage" for="reptile"></label>
+        <input type="radio" value="cat" id="cat" name="typeOfAnimal">
+        <label class="animal cat radioImage" for="cat"></label>
+        <input type="radio" value="dog" id="dog" name="typeOfAnimal">
+        <label class="animal dog radioImage" for="dog"></label>
+        <input type="radio" value="smallfurry" id="smallfurry" name="typeOfAnimal">
+        <label class="animal smallfurry radioImage" for="smallfurry"></label>
+        <input type="radio" value="bird" id="bird" name="typeOfAnimal">
+        <label class="animal bird radioImage" for="bird"></label>
+      </div>
+      <label><h2>What is your location?</h2></label>
+      <div class="locationFilter">
+      <input type="text" class="myLocation" placeholder="City, State or Zip Code" required>
+      <button class="filters">More Filters</button>
+    </div>
+      <div class="hidden sizeAgeSex">
+        <div class="animalSize">
+      <label><h2>Size of Animal</h2></label>
+      <input type="radio" name="sizeOfAnimal" value="S" id="small">
+      <label class="size small radioImage" for="small"></label>
+      <input type="radio" name="sizeOfAnimal" value="M" id="medium">
+      <label class="size medium radioImage" for="medium"></label>
+      <input type="radio" name="sizeOfAnimal" value="L" id="large">
+      <label class="size large radioImage" for="large"></label>
+      <input type="radio" name="sizeOfAnimal" value="XL" id="extralarge">
+      <label class="size extralarge radioImage" for="extralarge"></label>
+    </div>
+    <div class="mfDiv">
+      <label><h2>Sex of Animal</h2></label>
+      <input type="radio" name="sexOfAnimal" value="F" id="female">
+      <label class="sex female radioImage" for="female"></label>
+      <input type="radio" name="sexOfAnimal" value="M" id="male">
+      <label class="sex male radioImage" for="male"></label>
+    </div>
+    <div class="animalAgeDiv">
+      <label><h2>Age of Animal</h2></label>
+      <input type="radio" name="ageOfAnimal" value="Baby" id="baby">
+      <label class="age baby radioImage" for="baby"></label>
+      <input type="radio" name="ageOfAnimal" value="Young" id="young">
+      <label class="age young radioImage" for="young"></label>
+      <input type="radio" name="ageOfAnimal" value="Adult" id="adult">
+      <label class="age adult radioImage" for="adult"></label>
+      <input type="radio" name="ageOfAnimal" value="Senior" id="senior">
+      <label class="age senior radioImage" for="senior"></label>
+    </div>
+  </div>
+  <div class="formbuttons">
+      <button type="submit" class="submit">Submit</button>
+      <button class="reset" href="index.html">Reset Form</button>
+</div>
     </form>
+  <div class="petvetbuttons">
+    <a href="#pets">View pet results </a>
+    <a href="#map">View vets near you </a>
+  </div>
+  </div>
     <section>
-      <div class="results"></div>
+      <div class="results hidden" id="pets"></div>
       <div id="map"></div>
     </section>
   </body>

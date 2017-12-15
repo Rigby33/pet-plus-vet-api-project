@@ -15,21 +15,21 @@
     </header>
     <main>
       <div class="overlay">
-        <div class="introText">
-        <h1>Thinking of bringing a new furry, feathery or scaly member into your family?</h1>
-        <p>One of the most important things to think about when adopting a pet is where are you going to take them to the vet. This is your one stop shop for finding adoptable animals in your area as well as veterinarians near you!</p>
-        <button href="styling.html#target">Go to form</button>
+      <div class="introText">
+        <h1>Thinking of adding a new furry, scaly, or feathered member to your family?</h1>
+        <p>One of the most important things to think about when adopting a pet is where you will be taking them to the vet. On Pet + Vet you can find animals to adopt in your area and veterinarians near you.</p>
+        <a href="#findapet" class="heroButton">Find a Pet</a>
       </div>
-      </div>
-      <div class="slide1 slide"></div>
-      <div class="slide2 slide"></div>
-      <div class="slide3 slide"></div>
-      <div class="slide4 slide"></div>
-      <div class="slide5 slide"></div>
+    </div>
+    <div class="slide slide1"></div>
+    <div class="slide slide2"></div>
+    <div class="slide slide3"></div>
+    <div class="slide slide4"></div>
+    <div class="slide slide5"></div>
     </main>
-    <a class="anchor" id="target"></a>
+    <div id="findapet" class="animalForm">
     <form>
-      <label>What type of animal are you looking for?</label>
+      <label><h2>What type of animal are you looking for?</h2></label>
       <div class="animalType">
         <input type="radio" value="reptile" id="reptile" name="typeOfAnimal">
         <label class="animal reptile" for="reptile"></label>
@@ -42,28 +42,38 @@
         <input type="radio" value="bird" id="bird" name="typeOfAnimal">
         <label class="animal bird" for="bird"></label>
       </div>
-      <label>What is your location?</label>
+      <label><h2>What is your location?</h2></label>
       <input type="text" class="myLocation" placeholder="City, State or Zip Code">
       <div class="sizeAgeSex">
-      <label>Size of Animal</label>
-      <select name="size" class="sizeOfAnimal">
-        <option value="S">Small</option>
-        <option value="M">Medium</option>
-        <option value="L">Large</option>
-        <option value="XL">Extra-large</option>
-      </select>
-      <label>Sex of Animal</label>
-      <select name="sex" class="sexOfAnimal">
-        <option value="F">Female</option>
-        <option value="M">Male</option>
-      </select>
-      <label>Age of Animal</label>
-      <select name="age" class="agoOfAnimal">
-        <option value="Baby">Baby</option>
-        <option value="Young">Young</option>
-        <option value="Adult">Adult</option>
-        <option value="Senior">Senior</option>
-      </select>
+        <div class="animalSize">
+      <label><h2>Size of Animal</h2></label>
+      <input type="radio" name="sizeOfAnimal" value="S" id="small">
+      <label class="size small" for="small"></label>
+      <input type="radio" name="sizeOfAnimal" value="M" id="medium">
+      <label class="size medium" for="medium"></label>
+      <input type="radio" name="sizeOfAnimal" value="L" id="large">
+      <label class="size large" for="large"></label>
+      <input type="radio" name="sizeOfAnimal" value="XL" id="extralarge">
+      <label class="size extralarge" for="extralarge"></label>
+    </div>
+    <div class="mfDiv">
+      <label><h2>Sex of Animal</h2></label>
+      <input type="radio" name="sexOfAnimal" value="F" id="female">
+      <label class="sex female" for="female"></label>
+      <input type="radio" name="sexOfAnimal" value="M" id="male">
+      <label class="sex male" for="male"></label>
+    </div>
+    <div class="animalAgeDiv">
+      <label><h2>Age of Animal</h2></label>
+      <input type="radio" name="ageOfAnimal" value="Baby" id="baby">
+      <label class="age baby" for="baby"></label>
+      <input type="radio" name="ageOfAnimal" value="Young" id="young">
+      <label class="age young" for="young"></label>
+      <input type="radio" name="ageOfAnimal" value="Adult" id="adult">
+      <label class="age adult" for="adult"></label>
+      <input type="radio" name="ageOfAnimal" value="Senior" id="senior">
+      <label class="age senior" for="senior"></label>
+    </div>
     </div>
       <button type="submit">Submit</button>
     </form>

@@ -12,7 +12,7 @@ function initMap () {
   $("form").on("submit", function(event) {
     event.preventDefault();
     $('#map').show();
-    var city = $('.myLocation').val();
+    let city = $('.myLocation').val();
     let typeOfAnimal = $('.animalType > input:checked').val();
     $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?address="+encodeURIComponent(city), function(val) {
       var location = val.results[0].geometry.location;

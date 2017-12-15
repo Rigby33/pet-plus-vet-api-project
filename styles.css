@@ -11,6 +11,117 @@ body {
   background-color: #F4F4F4;
 }
 
+header {
+  position: absolute;
+  z-index: 2;
+  width: 100%
+}
+
+header > img {
+  width: 15%;
+  margin-left: 40px;
+  margin-top: 20px
+}
+
+main {
+  width: 100%;
+  height: 850px;
+}
+
+.overlay {
+  width: 100%;
+  height: 850px;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  z-index: 1
+}
+
+.introText {
+  margin-top: 350px;
+  margin-left: 50px;
+  width:40%;
+  color: #ffffff
+}
+
+h1 {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  line-height: 1.2em;
+  font-size: 2em
+}
+
+.introText p {
+  font-size: 1.2em;
+  margin-bottom: 40px
+}
+
+.heroButton {
+  padding: 20px 25px;
+  border: 2px solid #ed5e36;
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  transition: all 1s ease;
+  animation-duration: 2.5s;
+  animation-timing-function: ease;
+}
+
+.heroButton:hover {
+  animation-name: colorchange;
+  background-color: #4885b0;
+  border: 2px solid #4885b0
+}
+
+.heroButton:after {
+  content: '\f002';
+  margin-left: 5px;
+  margin-bottom: 10px;
+  font-family: "FontAwesome";
+}
+
+@keyframes colorchange {
+  0%{background-color: #ed5e36; border: 2px solid #ed5e36}
+  20%{background-color: #9FB31B; border: 2px solid #9FB31B}
+  40%{background-color: #4885b0; border: 2px solid #4885b0}
+  60%{background-color: #ed5e36; border: 2px solid #ed5e36}
+  80%{background-color: #9FB31B; border: 2px solid #9FB31B}
+  100%{background-color: #4885b0; border: 2px solid #4885b0}
+}
+
+.slide {
+  height: 850px;
+  width: 100%;
+  position: absolute;
+  display: none
+}
+
+.slide1 {
+  background: url(images/black-cat-slide.jpg) center center/cover no-repeat;
+}
+
+.slide2 {
+  background: url(images/dog-slide.jpg) center center/cover no-repeat;
+}
+
+.slide3 {
+  background: url(images/guinea-pig-slide.jpg) center center/cover no-repeat;
+}
+
+.slide4 {
+  background: url(images/lizard-slide.jpg) center center/cover no-repeat;
+}
+
+.slide5 {
+  background: url(images/parrot-slide.jpg) center center/cover no-repeat;
+}
+
+.animalForm {
+  padding: 100px 0;
+  background: url(images/linebackground.jpg) repeat;
+}
+
 form {
   width: 100%;
   display: flex;
@@ -18,11 +129,21 @@ form {
   text-align: center;
 }
 
+label > h2 {
+  font-size: 2em;
+  text-transform: uppercase;
+  color: #366d94;
+  margin-bottom: 30px
+}
+
 input[type=text] {
   width:50%;
-  margin: 20px auto;
   padding:10px;
-  font-size: 20px
+  font-size: 20px;
+  border-top: 2px solid #4885B0;
+  border-bottom: 2px solid #4885B0;
+  border-left: 2px solid #4885B0;
+  border-right: 0px
 }
 
 .animalType {
@@ -31,7 +152,7 @@ input[type=text] {
   text-align: center;
 }
 
-.animalType input {
+input[type=radio] {
   margin:0;
   padding:0;
    -webkit-appearance:none;
@@ -40,27 +161,50 @@ input[type=text] {
            animation-duration: 1s
 }
 
-.animalType input:checked + .animal {
+input:checked + .radioImage {
   background-color: #D4E278;
-  animation-name: upanddown;
+  border: 10px solid #9FB31B;
+  animation-name: updownanimation;
 }
 
-.animal {
+/* .animalAgeDiv > input[type=radio] {
+  -webkit-appearance:radio;
+     -moz-appearance:radio;
+          appearance:radio;
+} */
+
+.radioImage {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 250px;
-  width: 250px;
+  height: 300px;
+  width: 300px;
   display: inline-block;
   cursor: pointer;
+  border: 10px solid transparent;
+  padding: 20px;
   border-radius: 50%;
-  border: 20px solid transparent;
-  position: relative;
-  animation-duration: 1s
+  animation-duration: 1.5s
 }
 
-@keyframes upanddown {
-  0%, 100%, 20%, 50%, 80% {
+.size, .sex, .age {
+  height: 150px;
+  width: 150px
+}
+
+.radioImage:hover {
+  /* background-color: #ed5e36; */
+  border: 10px solid #4885B0;
+  animation-name: updownanimation;
+}
+
+/* input[name=typeOfAnimal]:checked + .animal {
+  border: 10px solid #9FB31B;
+  animation-name: updownanimation;
+} */
+
+@keyframes updownanimation {
+  0%, 100%, 50%, 80% {
 		-webkit-transform: translateY(0);
 		-ms-transform:     translateY(0);
 		transform:         translateY(0)
@@ -75,11 +219,6 @@ input[type=text] {
 		-ms-transform:     translateY(-15px);
 		transform:         translateY(-15px)
 	}
-}
-
-.animal:hover {
-  background-color: #D4E278;
-  animation-name: upanddown;
 }
 
 .reptile {
@@ -102,12 +241,168 @@ input[type=text] {
   background-image: url(images/bird-icon.png);
 }
 
+.filters {
+  padding: 15px 20px;
+  background-color: #ffffff;
+  color: #ED5E36;
+  text-decoration: none;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  transition: all .5s ease;
+  /* animation-duration: 2.5s;
+  animation-timing-function: ease; */
+  width: 15%;
+  border: 2px solid #ED5E36;
+  cursor: pointer;
+}
+
+.filters:hover {
+  /* animation-name: colorchange; */
+  background-color: #ED5E36;
+  color: #ffffff;
+}
+
+.filters:after {
+  content: ' \f078';
+  margin-left: 5px;
+  margin-bottom: 10px;
+  font-family: "FontAwesome";
+}
+
+.showFilters:after {
+  content: ' \f077';
+  font-family: "FontAwesome";
+}
+
+.showFilters {
+  background-color: #ED5E36;
+  color: #ffffff;
+}
+
+.locationFilter {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 40px auto;
+  width: 80%;
+}
+
+.hidden {
+  display: none!important;
+}
+
+.sizeAgeSex {
+  display: flex;
+  justify-content: center;
+}
+
+.small {
+  background-image: url(images/small.png)
+}
+
+.medium {
+  background-image: url(images/medium.png)
+}
+
+.large {
+  background-image: url(images/large.png)
+}
+
+.extralarge {
+  background-image: url(images/extralarge.png)
+}
+
+.female {
+  background-image: url(images/female.png)
+}
+
+.male {
+  background-image: url(images/male.png)
+}
 
 
-button[type=submit] {
-  width:10%;
-  margin: 20px auto;
-  padding: 15px
+.baby {
+  background-image: url(images/baby.png)
+}
+
+.young {
+  background-image: url(images/young.png)
+}
+
+.adult {
+  background-image: url(images/adult.png)
+}
+
+.senior {
+  background-image: url(images/senior.png)
+}
+
+.formbuttons > button {
+  width:25%;
+  padding: 20px;
+  font-size: 1.1em;
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 0px;
+  cursor: pointer;
+}
+
+.formbuttons {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: 40px auto
+}
+
+.submit {
+  background-color: #9FB31B;
+}
+
+.reset {
+  background-color: #4885B0
+}
+
+.petvetbuttons {
+  display: none;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  padding: 15px 20px;
+}
+
+.petvetbuttons > a {
+  padding: 15px 20px;
+  background-color: #ed5e36;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  transition: all 1s ease;
+  animation-duration: 2.5s;
+  animation-timing-function: ease;
+  width: 15%;
+  border: 0px;
+  margin: 0 auto;
+  cursor: pointer;
+  position: relative;
+}
+
+.petvetbuttons > a:hover {
+  animation-name: colorchange;
+  background-color: #4885b0
+}
+
+.petvetbuttons > a:first-of-type:after {
+  content: '\f1b0';
+  margin-left: 5px;
+  margin-bottom: 10px;
+  font-family: "FontAwesome";
+}
+
+.petvetbuttons > a:last-of-type:after {
+  content: '\f067';
+  margin-left: 5px;
+  margin-bottom: 10px;
+  font-family: "FontAwesome";
 }
 
 #map {
@@ -138,9 +433,11 @@ button[type=submit] {
 .results {
   display: flex;
   flex-wrap: wrap;
-  width: 70%;
+  width: 100%;
   justify-content: space-between;
-  margin: 0 auto
+  margin: 0 auto;
+  padding: 100px 250px;
+  background: url(images/furbackground.jpg) repeat;
 }
 
 .pet {
@@ -152,7 +449,6 @@ button[type=submit] {
 .petImage {
   height: 230px;
   width: 100%;
-  /* border-radius: 50%; */
 }
 
 h2 {
@@ -188,7 +484,7 @@ p {
   border-radius: 0px;
   padding: 15px;
   text-align: left;
-  background-color: #A5BE00;
+  background-color: #9FB31B;
   color: #ffffff;
   cursor: pointer;
   text-transform: uppercase;
