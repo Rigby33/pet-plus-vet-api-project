@@ -161,6 +161,7 @@ input[type=radio] {
            animation-duration: 1s
 }
 
+
 input:checked + .radioImage {
   background-color: #D4E278;
   border: 10px solid #9FB31B;
@@ -184,12 +185,14 @@ input:checked + .radioImage {
   border: 10px solid transparent;
   padding: 20px;
   border-radius: 50%;
-  animation-duration: 1.5s
+  animation-duration: 1.5s;
+  background-color: #ffffff;
+  margin: 0 10px
 }
 
 .size, .sex, .age {
-  height: 150px;
-  width: 150px
+  height: 125px;
+  width: 125px
 }
 
 .radioImage:hover {
@@ -292,7 +295,9 @@ input:checked + .radioImage {
 
 .sizeAgeSex {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  width: 90%;
+  margin: 0 auto
 }
 
 .small {
@@ -344,6 +349,11 @@ input:checked + .radioImage {
   text-transform: uppercase;
   border: 0px;
   cursor: pointer;
+  transition: all .5s ease;
+}
+
+.formbuttons > button:hover {
+  background-color: #ED5E36
 }
 
 .formbuttons {
@@ -362,7 +372,8 @@ input:checked + .radioImage {
 }
 
 .petvetbuttons {
-  display: none;
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
   width: 100%;
   text-align: center;
@@ -371,24 +382,24 @@ input:checked + .radioImage {
 
 .petvetbuttons > a {
   padding: 15px 20px;
-  background-color: #ed5e36;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #ED5E36;
   text-decoration: none;
   font-size: 1.1em;
   text-transform: uppercase;
-  transition: all 1s ease;
-  animation-duration: 2.5s;
-  animation-timing-function: ease;
-  width: 15%;
-  border: 0px;
-  margin: 0 auto;
+  transition: all .5s ease;
+  width: 20%;
+  border: 2px solid #ED5E36;
   cursor: pointer;
-  position: relative;
 }
 
 .petvetbuttons > a:hover {
-  animation-name: colorchange;
-  background-color: #4885b0
+  background-color: #ED5E36;
+  color: #ffffff;
+}
+
+.petvetbuttons > a:first-of-type {
+    border-right:0px;
 }
 
 .petvetbuttons > a:first-of-type:after {
@@ -436,8 +447,12 @@ input:checked + .radioImage {
   width: 100%;
   justify-content: space-between;
   margin: 0 auto;
+}
+
+.petResults {
   padding: 100px 250px;
   background: url(images/furbackground.jpg) repeat;
+  width: 100%;
 }
 
 .pet {
@@ -464,6 +479,7 @@ h3 {
 .petDescription > p {
   display: none;
   margin: 20px 15px;
+  font-size: 1em
 }
 
 .pet > p {
@@ -488,6 +504,7 @@ p {
   color: #ffffff;
   cursor: pointer;
   text-transform: uppercase;
+  font-size: 1em
 }
 
 .clickToExpand::after {
@@ -502,4 +519,40 @@ p {
 
 .active {
   background-color: #679436;
+}
+
+.moreresults {
+  margin: 0 auto;
+  text-align: center
+}
+
+
+.moreresults > button {
+  padding: 20px;
+  border: 2px solid #ed5e36;
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  transition: all 1s ease;
+  animation-duration: 2.5s;
+  animation-timing-function: ease;
+  background-color: #ed5e36
+}
+
+.moreresults > button:hover {
+  animation-name: colorchange;
+  background-color: #4885b0;
+  border: 2px solid #4885b0
+}
+
+.previous:before {
+  content: '\f053';
+  font-family: "FontAwesome";
+}
+
+.next:after {
+  content: '\f054';
+  font-family: "FontAwesome";
 }

@@ -86,13 +86,19 @@
       <button class="reset" href="index.html">Reset Form</button>
 </div>
     </form>
-  <div class="petvetbuttons">
+  <div class="petvetbuttons hidden">
     <a href="#pets">View pet results </a>
     <a href="#map">View vets near you </a>
   </div>
   </div>
     <section>
-      <div class="results hidden" id="pets"></div>
+      <div class="petResults hidden">
+      <div class="results" id="pets"></div>
+      <div class="moreresults">
+      <button class="previous"> Previous</button>
+      <button class="next">Next </button>
+    </div>
+    </div>
       <div id="map"></div>
     </section>
   </body>

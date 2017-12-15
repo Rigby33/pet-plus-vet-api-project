@@ -135,10 +135,52 @@ function searchForAPet() {
     if (! $('.animalAgeDiv > input').is(':checked')) {
       age = '';
     }
-    $('.petvetbuttons').show();
-    $('.results').removeClass('hidden');
+    $('.petvetbuttons').removeClass('hidden');
+    $('.petResults').removeClass('hidden');
     getDataFromPetfinderApi(animal, size, sex, myLocation, age, returnResults);
   });
 }
+
+// function nextResults() {
+//   $('.petResults').on('click', '.next', function(event) {
+//     event.preventDefault();
+//     let animal = $('.animalType > input:checked').val();
+//     let size = $('.animalSize > input:checked').val();
+//     if (! $('.animalSize > input').is(':checked')) {
+//       size = '';
+//     }
+//     let sex = $('.mfDiv > input:checked').val();
+//     if (! $('.mfDiv > input').is(':checked')) {
+//       sex = '';
+//     }
+//     let myLocation = $('.myLocation').val();
+//     let age = $('.animalAgeDiv > input:checked').val();
+//     if (! $('.animalAgeDiv > input').is(':checked')) {
+//       age = '';
+//     }
+//     getDataFromPetfinderApi(animal, size, sex, myLocation, age, returnResults);
+//   });
+// }
+//
+// function previousResults() {
+//   $('.petResults').on('click', '.previous', function(event) {
+//     event.preventDefault();
+//     let animal = $('.animalType > input:checked').val();
+//     let size = $('.animalSize > input:checked').val();
+//     if (! $('.animalSize > input').is(':checked')) {
+//       size = '';
+//     }
+//     let sex = $('.mfDiv > input:checked').val();
+//     if (! $('.mfDiv > input').is(':checked')) {
+//       sex = '';
+//     }
+//     let myLocation = $('.myLocation').val();
+//     let age = $('.animalAgeDiv > input:checked').val();
+//     if (! $('.animalAgeDiv > input').is(':checked')) {
+//       age = '';
+//     }
+//     getDataFromPetfinderApi(animal, size, sex, myLocation, age, returnResults);
+//   });
+// }
 
 $(searchForAPet);
