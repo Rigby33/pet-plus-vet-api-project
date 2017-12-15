@@ -10,7 +10,7 @@ function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, p
     sex: pickSex,
     location: enterLocation,
     age: pickAge,
-    callback: '?'
+    callback: '?',
   };
   let queryParams = buildQueryString(paramsObj);
   let url = petfinderApiUrl + queryParams;
@@ -119,10 +119,10 @@ function searchForAPet() {
   $('form').submit(function (event) {
     event.preventDefault();
     const animal = $('.animalType > input:checked').val();
-    const size = $('.sizeOfAnimal').val();
-    const sex = $('.sexOfAnimal').val();
+    const size = $('.animalSize > input:checked').val();
+    const sex = $('.mfDiv > input:checked').val();
     const myLocation = $('.myLocation').val();
-    const age = $('.agoOfAnimal').val();
+    const age = $('.animalAgeDiv > input:checked').val();
     getDataFromPetfinderApi(animal, size, sex, myLocation, age, returnResults);
   });
 }

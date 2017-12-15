@@ -11,11 +11,125 @@ body {
   background-color: #F4F4F4;
 }
 
+header {
+  position: absolute;
+  z-index: 2;
+  width: 100%
+}
+
+header > img {
+  width: 15%;
+  margin-left: 40px;
+  margin-top: 20px
+}
+
+main {
+  width: 100%;
+  height: 800px;
+}
+
+.overlay {
+  width: 100%;
+  height: 800px;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  z-index: 1
+}
+
+.introText {
+  margin-top: 350px;
+  margin-left: 50px;
+  width:40%;
+  color: #ffffff
+}
+
+h1 {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  line-height: 1.2em
+}
+
+.introText p {
+  font-size: 1.2em;
+  margin-bottom: 40px
+}
+
+.heroButton {
+  padding: 15px 20px;
+  background-color: #ed5e36;
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  transition: all 1s ease;
+  animation-duration: 2.5s;
+  animation-timing-function: ease;
+}
+
+.heroButton:hover {
+  animation-name: colorchange;
+  background-color: #4885b0
+}
+
+.heroButton:after {
+  content: '\f078';
+  margin-left: 5px;
+  margin-bottom: 10px;
+  font-family: "FontAwesome";
+}
+
+@keyframes colorchange {
+  0%{background-color: #ed5e36}
+  20%{background-color: #a5be00}
+  40%{background-color: #4885b0}
+  60%{background-color: #ed5e36}
+  80%{background-color: #a5be00}
+  100%{background-color: #4885b0}
+}
+
+.slide {
+  height: 800px;
+  width: 100%;
+  position: absolute;
+  display: none
+}
+
+.slide1 {
+  background: url(images/black-cat-slide.jpg) center center/cover no-repeat;
+}
+
+.slide2 {
+  background: url(images/dog-slide.jpg) center center/cover no-repeat;
+}
+
+.slide3 {
+  background: url(images/guinea-pig-slide.jpg) center center/cover no-repeat;
+}
+
+.slide4 {
+  background: url(images/lizard-slide.jpg) center center/cover no-repeat;
+}
+
+.slide5 {
+  background: url(images/parrot-slide.jpg) center center/cover no-repeat;
+}
+
+.animalForm {
+  padding:100px 0px
+}
+
 form {
   width: 100%;
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: #366d94
 }
 
 input[type=text] {
@@ -31,7 +145,7 @@ input[type=text] {
   text-align: center;
 }
 
-.animalType input {
+input[type=radio] {
   margin:0;
   padding:0;
    -webkit-appearance:none;
@@ -47,10 +161,37 @@ input[type=text] {
   width: 250px;
   display: inline-block;
   cursor: pointer;
+  border: 20px solid transparent;
+  border-radius: 50%;
+  animation-duration: 1.5s
 }
 
 .animal:hover {
-  background-color: #D4E278
+  background-color: #ed5e36;
+  animation-name: updownanimation;
+}
+
+input[name=typeOfAnimal]:checked + .animal {
+  background-color: #ed5e36;
+  animation-name: updownanimation;
+}
+
+@keyframes updownanimation {
+  0%, 100%, 50%, 80% {
+		-webkit-transform: translateY(0);
+		-ms-transform:     translateY(0);
+		transform:         translateY(0)
+	}
+	40% {
+		-webkit-transform: translateY(-30px);
+		-ms-transform:     translateY(-30px);
+		transform:         translateY(-30px)
+	}
+	60% {
+		-webkit-transform: translateY(-15px);
+		-ms-transform:     translateY(-15px);
+		transform:         translateY(-15px)
+	}
 }
 
 .reptile {
@@ -73,6 +214,80 @@ input[type=text] {
   background-image: url(images/bird-icon.png);
 }
 
+.sizeAgeSex {
+  display: flex;
+  justify-content: center
+}
+
+.size {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 150px;
+  width: 150px;
+  display: inline-block;
+  cursor: pointer;
+  border: 10px solid transparent;
+  border-radius: 50%;
+  animation-duration: 1.5s
+}
+
+.size:hover {
+  background-color: #ed5e36;
+  animation-name: updownanimation;
+}
+
+input[name=sizeOfAnimal]:checked + .size {
+  background-color: #ed5e36;
+  animation-name: updownanimation;
+}
+
+.small {
+  background-image: url(images/small.png)
+}
+
+.medium {
+  background-image: url(images/medium.png)
+}
+
+.large {
+  background-image: url(images/large.png)
+}
+
+.extralarge {
+  background-image: url(images/extralarge.png)
+}
+
+.sex {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 150px;
+  width: 150px;
+  display: inline-block;
+  cursor: pointer;
+  border: 10px solid transparent;
+  border-radius: 50%;
+  animation-duration: 1.5s
+}
+
+.sex:hover {
+  background-color: #ed5e36;
+  animation-name: updownanimation;
+}
+
+input[name=sexOfAnimal]:checked + .sex {
+  background-color: #ed5e36;
+  animation-name: updownanimation;
+}
+
+.female {
+  background-image: url(images/female.png)
+}
+
+.male {
+  background-image: url(images/male.png)
+}
 
 button[type=submit] {
   width:10%;

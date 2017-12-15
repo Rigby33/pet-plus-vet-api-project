@@ -13,8 +13,9 @@
     <link href="styles.css" rel="stylesheet"/>
   </head>
   <body>
+    <div id="findapet" class="animalForm">
     <form>
-      <label>What type of animal are you looking for?</label>
+      <label><h2>What type of animal are you looking for?</h2></label>
       <div class="animalType">
         <input type="radio" value="reptile" id="reptile" name="typeOfAnimal">
         <label class="animal reptile" for="reptile"></label>
@@ -27,33 +28,45 @@
         <input type="radio" value="bird" id="bird" name="typeOfAnimal">
         <label class="animal bird" for="bird"></label>
       </div>
-      <label>What is your location?</label>
+      <label><h2>What is your location?</h2></label>
       <input type="text" class="myLocation" placeholder="City, State or Zip Code">
       <div class="sizeAgeSex">
-      <label>Size of Animal</label>
-      <select name="size" class="sizeOfAnimal">
-        <option value="S">Small</option>
-        <option value="M">Medium</option>
-        <option value="L">Large</option>
-        <option value="XL">Extra-large</option>
-      </select>
-      <label>Sex of Animal</label>
-      <select name="sex" class="sexOfAnimal">
-        <option value="F">Female</option>
-        <option value="M">Male</option>
-      </select>
-      <label>Age of Animal</label>
-      <select name="age" class="agoOfAnimal">
-        <option value="Baby">Baby</option>
-        <option value="Young">Young</option>
-        <option value="Adult">Adult</option>
-        <option value="Senior">Senior</option>
-      </select>
+        <div class="animalSize">
+      <label><h2>Size of Animal</h2></label>
+      <input type="radio" name="sizeOfAnimal" value="S" id="small">
+      <label class="size small" for="small"></label>
+      <input type="radio" name="sizeOfAnimal" value="M" id="medium">
+      <label class="size medium" for="medium"></label>
+      <input type="radio" name="sizeOfAnimal" value="L" id="large">
+      <label class="size large" for="large"></label>
+      <input type="radio" name="sizeOfAnimal" value="XL" id="extralarge">
+      <label class="size extralarge" for="extralarge"></label>
+    </div>
+    <div class="mfDiv">
+      <label><h2>Sex of Animal</h2></label>
+      <input type="radio" name="sexOfAnimal" value="F" id="female">
+      <label class="sex female" for="female"></label>
+      <input type="radio" name="sexOfAnimal" value="M" id="male">
+      <label class="sex male" for="male"></label>
+    </div>
+    <div class="animalAgeDiv">
+      <label><h2>Age of Animal</h2></label>
+      <input type="radio" name="ageOfAnimal" value="Baby" id="baby">
+      <label class="age baby" for="baby"></label>
+      <input type="radio" name="ageOfAnimal" value="Young" id="young">
+      <label class="age young" for="young"></label>
+      <input type="radio" name="ageOfAnimal" value="Adult" id="adult">
+      <label class="age adult" for="adult"></label>
+      <input type="radio" name="ageOfAnimal" value="Senior" id="senior">
+      <label class="age senior" for="senior"></label>
+    </div>
     </div>
       <button type="submit">Submit</button>
     </form>
+  </div>
     <section>
-      <div class="results"></div>
+      <div class="results" id="pets"></div>
+      <button class='previousResults'>previous</button>
       <div id="map"></div>
     </section>
   </body>
