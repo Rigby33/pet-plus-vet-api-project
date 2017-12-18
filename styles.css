@@ -83,6 +83,8 @@ h1 {
   font-family: "FontAwesome";
 }
 
+/* Animations */
+
 @keyframes colorchange {
   0%{background-color: #ed5e36; border: 2px solid #ed5e36}
   20%{background-color: #9FB31B; border: 2px solid #9FB31B}
@@ -182,8 +184,8 @@ input:checked + .radioImage {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
   display: inline-block;
   cursor: pointer;
   border: 10px solid transparent;
@@ -287,6 +289,7 @@ input:checked + .radioImage {
   justify-content: center;
   margin: 0 auto 40px auto;
   width: 80%;
+  flex-wrap: wrap
 }
 
 .sizeAgeSex {
@@ -371,6 +374,7 @@ input:checked + .radioImage {
   width: 100%;
   text-align: center;
   padding: 15px 20px;
+  flex-wrap: wrap;
 }
 
 .petvetbuttons > a {
@@ -410,15 +414,14 @@ input:checked + .radioImage {
 }
 
 #map {
-  height: 400px;
-  width:70%;
+  height: 600px;
+  width:100%;
   margin: 0 auto;
 
 }
 
 #vetResults {
-  /*display: none;*/
-  padding: 100px 0;
+  display: none;
 }
 
 #vetResults > h2 {
@@ -443,19 +446,30 @@ input:checked + .radioImage {
   display: inline;
 }
 
+.gotovetresultsdiv {
+  display: none;
+    position: fixed;
+    z-index: 99;
+    bottom: 50%;
+    right: 0
+}
+
 .fixedVetButton {
-  position: fixed;
   padding: 15px 20px;
-  background-color: #ffffff;
-  color: #ED5E36;
+  background-color: #ED5E36;
+  color: #ffffff;
   text-decoration: none;
   font-size: 1.1em;
   text-transform: uppercase;
   transition: all .5s ease;
-  border: 2px solid #ED5E36;
   cursor: pointer;
-  top: 50%;
-  right: 0;
+  text-align: center;
+  display: inline-block;
+}
+
+.fixedVetButton:after {
+  content: '\f067';
+  font-family: "FontAwesome";
 }
 
 .results {
@@ -476,6 +490,13 @@ input:checked + .radioImage {
   width: 30%;
   margin: 0 5px 40px 5px;
   background-color: #ffffff;
+  color: #333333;
+}
+
+.pet > p >a {
+  text-decoration: none;
+  color: #ed5e36;
+  font-weight: bold;
 }
 
 .petImage {
@@ -483,14 +504,22 @@ input:checked + .radioImage {
   width: 100%;
 }
 
-h2 {
+.petnameandphoto > h2 {
   font-size: 1.5em;
-  margin: 20px 15px;
+  padding: 20px 15px;
+  background-color: #679436;
+  color: #ffffff;
+  text-transform: uppercase
 }
 
 h3 {
   margin: 20px 15px 10px;
   font-size: 1.3em
+}
+
+.petDescription {
+  position: relative;
+  width: 100%;
 }
 
 .petDescription > p {
@@ -513,15 +542,19 @@ p {
 
 .clickToExpand {
   width: 100%;
-  border: none;
-  border-radius: 0px;
-  padding: 15px;
-  text-align: left;
-  background-color: #9FB31B;
-  color: #ffffff;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-size: 1em
+border: none;
+border-radius: 0px;
+padding: 15px;
+text-align: left;
+background-color: #9FB31B;
+color: #ffffff;
+cursor: pointer;
+text-transform: uppercase;
+font-size: 1em;
+position: absolute;
+/* top: 0; */
+/* z-index: 10; */
+display: block;
 }
 
 .clickToExpand::after {
@@ -588,14 +621,183 @@ p {
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 1650px) {
+.scrollbackdiv {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  bottom: 40px;
+  right: 20px;
+}
+
+.scrollbackdiv > a {
+  background-color: #9fb31b;
+  padding: 15px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 50%;
+  /* line-height: 1.5em; */
+  font-size: 1.5em;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  height: 60px;
+  width: 60px;
+  opacity: .5;
+}
+
+.scrollbackdiv > a:after {
+  content: ' \f077';
+  font-family: "FontAwesome";
+}
+
+.scrollbackdiv > a:hover {
+  opacity: 1;
+}
+
+.required {
+  background: #EC5D36;
+  color: #ffffff;
+  padding: 20px;
+  width: 50%;
+  margin: 0 auto 20px auto;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  display: none;
+}
+
+@media screen and (max-width: 1600px) {
+  main, .overlay, .slide {
+    height: 800px;
+  }
+  .introText {
+    width: 60%;
+  }
   .radioImage {
-    width: 200px;
-    height: 200px
+    width: 180px;
+    height: 180px
   }
 
   .size, .sex, .age {
+    height: 80px;
+    width: 80px
+  }
+  .formbuttons {
+    width: 70%
+  }
+  .petResults {
+    padding: 100px 50px
+  }
+  .petvetbuttons > a {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  header > img {
+    width: 20%;
+  }
+  main, .overlay, .slide{
+    height: 700px;
+  }
+  .animalSize, .mfDiv, .animalAgeDiv {
+    float: none;
+  }
+  .introText {
+    margin-top: 250px;
+  }
+  .size, .sex, .age {
     height: 100px;
     width: 100px
+  }
+  #map {
+    height: 400px
+  }
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    position: relative;
+    background-color: #ed5e36
+  }
+  header > img {
+    width: 40%;
+    margin-left: 20px;
+    margin-bottom: 20px
+  }
+  main, .overlay, .slide{
+    height: 450px;
+  }
+  .introText {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px;
+    margin-top: 50px
+  }
+  h1 {
+    font-size: 1.5em
+  }
+  .introText p {
+    font-size: 1em;
+    margin-bottom: 20px
+  }
+  .heroButton {
+    padding: 10px 15px;
+    font-size: 1em
+  }
+  .animalForm {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  label > h2 {
+    font-size: 1.5em;
+    line-height: 1.2em
+  }
+  .animal {
+    margin-bottom: 10px
+  }
+
+  .locationFilter {
+    margin-bottom: 20px
+  }
+
+  input[type=text] {
+    border-right: 2px solid #4885B0;
+    border-bottom: 0px;
+    width: 100%;
+  }
+  .filters {
+    width: 100%;
+  }
+  .animalSize, .mfDiv, .animalAgeDiv {
+    float: none;
+  }
+  .formbuttons {
+    width: 100%;
+    margin-top: 20px
+  }
+  .formbuttons > button {
+    width: 40%
+  }
+  .petvetbuttons > a {
+    width: 100%;
+  }
+  .petvetbuttons > a:first-of-type {
+    border-right: 2px solid #ED5E36;
+    border-bottom: 0px;
+  }
+  .petResults {
+    padding: 70px 0px
+  }
+  .pet {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px
+  }
+  .fixedVetButton {
+    display: none;
+  }
+  #map {
+    height: 300px
   }
 }

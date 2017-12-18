@@ -8,7 +8,7 @@
     <link href="styles.css" rel="stylesheet"/>
   </head>
   <body>
-    <header>
+    <header id="top">
       <img src="images/logo.png" alt="pet plus vet"/>
     </header>
     <main>
@@ -78,7 +78,7 @@
   </div>
   <div class="formbuttons">
       <button type="submit" class="submit">Submit</button>
-      <button class="reset" href="index.html">Reset Form</button>
+      <button class="reset" type="reset">Reset Form</button>
 </div>
     </form>
   <div class="petvetbuttons hidden">
@@ -88,18 +88,23 @@
   </div>
     <section>
       <div class="petResults hidden">
-        <a href="#map" class="fixedVetButton">View Vet Results</a>
+        <div class="gotovetresultsdiv">
+        <a href="#map" class="fixedVetButton">View Vet<br>Results<br></a>
+      </div>
       <div class="results" id="pets"></div>
-      <div class="moreresults">
+      <!-- <div class="moreresults">
       <button class="previous"> Previous</button>
       <button class="next">Next </button>
-    </div>
+    </div> -->
     </div>
     <div id="vetResults">
-      <h2>Veterinarians near you</h2>
+      <!-- <h2>Veterinarians near you</h2> -->
       <div id="map"></div>
     </div>
     </section>
+    <div class="scrollbackdiv">
+      <a href="#top" title="back to top"></a>
+    </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC3RlzZbzH_9ImAcjhqAaCBRT4en3gFFE&libraries=places&callback=initMap" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>

@@ -10,7 +10,9 @@ function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, p
     sex: pickSex,
     location: enterLocation,
     age: pickAge,
-    offset: offset,
+    // offset: '30',
+    count: 30,
+    output: 'full',
     callback: '?',
   };
   let queryParams = buildQueryString(paramsObj);
@@ -29,79 +31,95 @@ function buildQueryString(myObject) {
 function handlePets(results) {
   if (results.media.photos == undefined && results.description.$t == undefined) {
     return `<div class="pet">
-      <h2>${results.name.$t}</h2>
+    <div class='petnameandphoto'>
       <div class="petImage" style="background: url('images/default-image.jpg') center center/cover no-repeat"></div>
+      <h2>${results.name.$t}</h2>
+      </div>
       <h3>Contact Info</h3>
       <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
     </div>`;
   } else if (results.media.photos == undefined) {
     return `<div class="pet">
-      <h2>${results.name.$t}</h2>
+    <div class='petnameandphoto'>
       <div class="petImage" style="background: url('images/default-image.jpg') center center/cover no-repeat"></div>
+      <h2>${results.name.$t}</h2>
+      </div>
+      <h3>Contact Info</h3>
+      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       <div class="petDescription">
       <button class="clickToExpand">View more details</button>
       <p>${results.description.$t}</p>
     </div>
-      <h3>Contact Info</h3>
-      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
-      <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
     </div>`;
   } else if (results.contact.phone.$t == undefined && results.description.$t == undefined) {
     return `<div class="pet">
-      <h2>${results.name.$t}</h2>
+    <div class='petnameandphoto'>
       <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+      <h2>${results.name.$t}</h2>
+      </div>
       <h3>Contact Info</h3>
       <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
     </div>`;
   } else if (results.contact.email.$t == undefined && results.description.$t == undefined) {
     return `<div class="pet">
-      <h2>${results.name.$t}</h2>
+    <div class='petnameandphoto'>
       <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+      <h2>${results.name.$t}</h2>
+      </div>
       <h3>Contact Info</h3>
       <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
     </div>`;
   } else if (results.description.$t == undefined) {
       return `<div class="pet">
-        <h2>${results.name.$t}</h2>
+      <div class='petnameandphoto'>
         <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        <h2>${results.name.$t}</h2>
+        </div>
         <h3>Contact Info</h3>
         <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
         <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       </div>`;
     } else if (results.contact.phone.$t == undefined) {
       return `<div class="pet">
-        <h2>${results.name.$t}</h2>
+      <div class='petnameandphoto'>
         <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        <h2>${results.name.$t}</h2>
+        </div>
+        <h3>Contact Info</h3>
+        <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
         <div class="petDescription">
         <button class="clickToExpand">View more details</button>
         <p>${results.description.$t}</p>
       </div>
-        <h3>Contact Info</h3>
-        <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       </div>`;
     } else if (results.contact.email.$t == undefined) {
       return `<div class="pet">
-        <h2>${results.name.$t}</h2>
+      <div class='petnameandphoto'>
         <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        <h2>${results.name.$t}</h2>
+        </div>
+        <h3>Contact Info</h3>
+        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
         <div class="petDescription">
         <button class="clickToExpand">View more details</button>
         <p>${results.description.$t}</p>
       </div>
-        <h3>Contact Info</h3>
-        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       </div>`;
     } else {
       return `<div class="pet">
-        <h2>${results.name.$t}</h2>
+      <div class='petnameandphoto'>
         <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        <h2>${results.name.$t}</h2>
+        </div>
+        <h3>Contact Info</h3>
+        <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
         <div class="petDescription">
         <button class="clickToExpand">View more details</button>
         <p>${results.description.$t}</p>
       </div>
-        <h3>Contact Info</h3>
-        <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
-        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       </div>`;
     }
   }
@@ -126,6 +144,9 @@ function searchForAPet() {
   $('form').submit(function (event) {
     event.preventDefault();
     let animal = $('.animalType > input:checked').val();
+    if (! $('.animalType > input').is(':checked')) {
+      $('.required').show();
+    }
     let size = $('.animalSize > input:checked').val();
     if (! $('.animalSize > input').is(':checked')) {
       size = '';
@@ -145,6 +166,7 @@ function searchForAPet() {
     getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
   });
 }
+
 
 // function nextResults(offset) {
 //   $('.petResults').on('click', '.next', function() {
