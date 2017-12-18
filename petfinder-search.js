@@ -1,7 +1,7 @@
 const petfinderApiUrl = 'http://api.petfinder.com/pet.find?';
 const petfinderApiKey = '9efdec91ddde1fb83e7d7af7fb5f03ee';
 
-function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, pickAge, callback) {
+function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, pickAge, offset, callback) {
   const paramsObj = {
     format: 'json',
     key: petfinderApiKey,
@@ -10,7 +10,7 @@ function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, p
     sex: pickSex,
     location: enterLocation,
     age: pickAge,
-    offest: '25',
+    offset: offset,
     callback: '?',
   };
   let queryParams = buildQueryString(paramsObj);
@@ -109,6 +109,10 @@ function handlePets(results) {
 function returnResults(data) {
   const petResults = data.petfinder.pets.pet;
   let numberOfPets = data.petfinder.lastOffset.$t;
+  // console.log(numberOfPets);
+  // let next = Number(numberOfPets);
+  // nextResults(next);
+  // previousResults(next);
   if (numberOfPets == '1') {
     let petfinderResults = handlePets(petResults);
     $('.results').html(petfinderResults);
@@ -137,13 +141,13 @@ function searchForAPet() {
     }
     $('.petvetbuttons').removeClass('hidden');
     $('.petResults').removeClass('hidden');
-    getDataFromPetfinderApi(animal, size, sex, myLocation, age, returnResults);
+    let offset = 0;
+    getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
   });
 }
 
-// function nextResults() {
-//   $('.petResults').on('click', '.next', function(event) {
-//     event.preventDefault();
+// function nextResults(offset) {
+//   $('.petResults').on('click', '.next', function() {
 //     let animal = $('.animalType > input:checked').val();
 //     let size = $('.animalSize > input:checked').val();
 //     if (! $('.animalSize > input').is(':checked')) {
@@ -158,13 +162,15 @@ function searchForAPet() {
 //     if (! $('.animalAgeDiv > input').is(':checked')) {
 //       age = '';
 //     }
-//     getDataFromPetfinderApi(animal, size, sex, myLocation, age, returnResults);
+//       debugger;
+//     console.log(offset);
+//     offset = Number(numberOfPets);
+//     getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
 //   });
 // }
 //
-// function previousResults() {
+// function previousResults(offset) {
 //   $('.petResults').on('click', '.previous', function(event) {
-//     event.preventDefault();
 //     let animal = $('.animalType > input:checked').val();
 //     let size = $('.animalSize > input:checked').val();
 //     if (! $('.animalSize > input').is(':checked')) {
@@ -179,7 +185,9 @@ function searchForAPet() {
 //     if (! $('.animalAgeDiv > input').is(':checked')) {
 //       age = '';
 //     }
-//     getDataFromPetfinderApi(animal, size, sex, myLocation, age, returnResults);
+//     offset -= 25;
+//     console.log(offset);
+//     getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
 //   });
 // }
 

@@ -3,11 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC3RlzZbzH_9ImAcjhqAaCBRT4en3gFFE&libraries=places&callback=initMap" async defer></script>
-    <script src="petfinder-search.js"></script>
-    <script src="google-maps.js"></script>
-    <script src="index.js"></script>
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
     <script src="https://use.fontawesome.com/e79a343372.js"></script>
     <link href="styles.css" rel="stylesheet"/>
@@ -93,13 +88,23 @@
   </div>
     <section>
       <div class="petResults hidden">
+        <a href="#map" class="fixedVetButton">View Vet Results</a>
       <div class="results" id="pets"></div>
       <div class="moreresults">
       <button class="previous"> Previous</button>
       <button class="next">Next </button>
     </div>
     </div>
+    <div id="vetResults">
+      <h2>Veterinarians near you</h2>
       <div id="map"></div>
+    </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC3RlzZbzH_9ImAcjhqAaCBRT4en3gFFE&libraries=places&callback=initMap" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="petfinder-search.js"></script>
+        <script src="google-maps.js"></script>
+        <script src="index.js"></script>
   </body>
 </html>

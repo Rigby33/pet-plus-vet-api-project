@@ -29,7 +29,10 @@ function moreFilterOptions() {
   $('.filters').on('click', function(event) {
     event.preventDefault();
     $(this).toggleClass('showFilters')
-    $('.sizeAgeSex').toggleClass('hidden');
+    $('.sizeAgeSex').slideToggle(function() {
+      $('.sizeAgeSex').toggleClass('hidden');
+    });
+    $('.sizeAgeSex').toggleClass('flexDisplay');
   })
 }
 
