@@ -72,6 +72,27 @@ $(window).scroll(function() {
   }
 });
 
+function lightboxRun() {
+  $('.results').on('click', '.petnameandphoto .petlink', function (event) {
+    event.preventDefault();
+    console.log('hi');
+    let petimage = $(event.currentTarget).attr('href');
+    let altTag = $(event.currentTarget).attr('title');
+    const item = `<div class="lightbox"><button class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></button><img src="${petimage}" alt="${altTag}"/></div>`;
+    $('.lightboxcontainer').hide().html(item).fadeIn();
+    closeLightBox();
+  });
+}
+
+function closeLightBox () {
+  $('.lightbox').on('click', '.close', function (event) {
+    $('.lightbox').fadeOut();
+  });
+  $('.lightbox').on('click', function (event) {
+    $('.lightbox').fadeOut();
+  });
+}
+$(lightboxRun);
 $(moreFilterOptions);
 $(slideShow);
 $(expandDescription);

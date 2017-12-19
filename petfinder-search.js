@@ -45,18 +45,20 @@ function handlePets(results) {
       <div class="petImage" style="background: url('images/default-image.jpg') center center/cover no-repeat"></div>
       <h2>${results.name.$t}</h2>
       </div>
-      <h3>Contact Info</h3>
-      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
-      <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       <div class="petDescription">
       <button class="clickToExpand">View more details</button>
       <p>${results.description.$t}</p>
     </div>
+      <h3>Contact Info</h3>
+      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
     </div>`;
   } else if (results.contact.phone.$t == undefined && results.description.$t == undefined) {
     return `<div class="pet">
     <div class='petnameandphoto'>
+    <a href="${results.media.photos.photo[2].$t}" title="name: ${results.name.$t} | animal: ${results.animal.$t}" class="petlink">
       <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+      </a>
       <h2>${results.name.$t}</h2>
       </div>
       <h3>Contact Info</h3>
@@ -65,7 +67,9 @@ function handlePets(results) {
   } else if (results.contact.email.$t == undefined && results.description.$t == undefined) {
     return `<div class="pet">
     <div class='petnameandphoto'>
+    <a href="${results.media.photos.photo[2].$t}" title="name: ${results.name.$t} | animal: ${results.animal.$t}" class="petlink">
       <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+      </a>
       <h2>${results.name.$t}</h2>
       </div>
       <h3>Contact Info</h3>
@@ -74,7 +78,9 @@ function handlePets(results) {
   } else if (results.description.$t == undefined) {
       return `<div class="pet">
       <div class='petnameandphoto'>
+      <a href="${results.media.photos.photo[2].$t}" title="name: ${results.name.$t} | animal: ${results.animal.$t}" class="petlink">
         <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        </a>
         <h2>${results.name.$t}</h2>
         </div>
         <h3>Contact Info</h3>
@@ -84,42 +90,47 @@ function handlePets(results) {
     } else if (results.contact.phone.$t == undefined) {
       return `<div class="pet">
       <div class='petnameandphoto'>
+      <a href="${results.media.photos.photo[2].$t}" title="name: ${results.name.$t} | animal: ${results.animal.$t}" class="petlink">
         <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        </a>
         <h2>${results.name.$t}</h2>
         </div>
-        <h3>Contact Info</h3>
-        <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
         <div class="petDescription">
         <button class="clickToExpand">View more details</button>
         <p>${results.description.$t}</p>
       </div>
+        <h3>Contact Info</h3>
+        <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       </div>`;
     } else if (results.contact.email.$t == undefined) {
       return `<div class="pet">
       <div class='petnameandphoto'>
+      <a href="${results.media.photos.photo[2].$t}" title="name: ${results.name.$t} | animal: ${results.animal.$t}" class="petlink">
         <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        </a>
         <h2>${results.name.$t}</h2>
         </div>
-        <h3>Contact Info</h3>
-        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
         <div class="petDescription">
         <button class="clickToExpand">View more details</button>
         <p>${results.description.$t}</p>
       </div>
+        <h3>Contact Info</h3>
+        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       </div>`;
     } else {
       return `<div class="pet">
       <div class='petnameandphoto'>
-        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        <a href="${results.media.photos.photo[2].$t}" title="name: ${results.name.$t} | animal: ${results.animal.$t}" class="petlink">
+        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div></a>
         <h2>${results.name.$t}</h2>
         </div>
-        <h3>Contact Info</h3>
-        <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
-        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
         <div class="petDescription">
         <button class="clickToExpand">View more details</button>
         <p>${results.description.$t}</p>
       </div>
+        <h3>Contact Info</h3>
+        <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+        <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       </div>`;
     }
   }
