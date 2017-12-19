@@ -32,7 +32,8 @@ function handlePets(results) {
   if (results.media.photos == undefined && results.description.$t == undefined) {
     return `<div class="pet">
     <div class='petnameandphoto'>
-      <div class="petImage" style="background: url('images/default-image.jpg') center center/cover no-repeat"></div>
+      <div class="petImage" style="background: url('images/default-image.jpg') center center/cover no-repeat">
+      </div>
       <h2>${results.name.$t}</h2>
       </div>
       <h3>Contact Info</h3>
@@ -57,7 +58,9 @@ function handlePets(results) {
     return `<div class="pet">
     <div class='petnameandphoto'>
     <a href="${results.media.photos.photo[2].$t}" title="name: ${results.name.$t} | animal: ${results.animal.$t}" class="petlink">
-      <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+      <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat">
+      <div class="petimageoverlay"></div>
+      </div>
       </a>
       <h2>${results.name.$t}</h2>
       </div>
@@ -68,7 +71,9 @@ function handlePets(results) {
     return `<div class="pet">
     <div class='petnameandphoto'>
     <a href="${results.media.photos.photo[2].$t}" title="name: ${results.name.$t} | animal: ${results.animal.$t}" class="petlink">
-      <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+      <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat">
+      <div class="petimageoverlay"></div>
+      </div>
       </a>
       <h2>${results.name.$t}</h2>
       </div>
@@ -79,7 +84,9 @@ function handlePets(results) {
       return `<div class="pet">
       <div class='petnameandphoto'>
       <a href="${results.media.photos.photo[2].$t}" title="name: ${results.name.$t} | animal: ${results.animal.$t}" class="petlink">
-        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat">
+        <div class="petimageoverlay"></div>
+        </div>
         </a>
         <h2>${results.name.$t}</h2>
         </div>
@@ -91,7 +98,9 @@ function handlePets(results) {
       return `<div class="pet">
       <div class='petnameandphoto'>
       <a href="${results.media.photos.photo[2].$t}" title="name: ${results.name.$t} | animal: ${results.animal.$t}" class="petlink">
-        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat">
+        <div class="petimageoverlay"></div>
+        </div>
         </a>
         <h2>${results.name.$t}</h2>
         </div>
@@ -106,7 +115,9 @@ function handlePets(results) {
       return `<div class="pet">
       <div class='petnameandphoto'>
       <a href="${results.media.photos.photo[2].$t}" title="name: ${results.name.$t} | animal: ${results.animal.$t}" class="petlink">
-        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div>
+        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat">
+        <div class="petimageoverlay"></div>
+        </div>
         </a>
         <h2>${results.name.$t}</h2>
         </div>
@@ -121,7 +132,10 @@ function handlePets(results) {
       return `<div class="pet">
       <div class='petnameandphoto'>
         <a href="${results.media.photos.photo[2].$t}" title="name: ${results.name.$t} | animal: ${results.animal.$t}" class="petlink">
-        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat"></div></a>
+        <div class="petImage" style="background: url('${results.media.photos.photo[2].$t}') center center/cover no-repeat">
+        <div class="petimageoverlay"></div>
+        </div>
+        </a>
         <h2>${results.name.$t}</h2>
         </div>
         <div class="petDescription">
@@ -171,9 +185,11 @@ function searchForAPet() {
     if (! $('.animalAgeDiv > input').is(':checked')) {
       age = '';
     }
-    $('.petvetbuttons').removeClass('hidden');
-    $('.petResults').removeClass('hidden');
+    $('.petvetbuttons, .petResults').removeClass('hidden');
+    $('.reset').fadeIn();
     let offset = 0;
+    let elmnt = document.getElementById('petvetbuttons');
+    elmnt.scrollIntoView({behavior: 'smooth', block: "start"});
     getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
   });
 }

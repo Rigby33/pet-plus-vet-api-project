@@ -12,12 +12,14 @@
       <img src="images/logo.png" alt="pet plus vet"/>
     </header>
     <main>
-      <div class="overlay">
-      <div class="introText">
-        <h1>Thinking of adding a new furry, scaly, or feathered member to your family?</h1>
-        <p>One of the most important things to think about when adopting a pet is where you will be taking them to the vet. On Pet + Vet you can find animals to adopt in your area and veterinarians near you.</p>
-        <a href="#findapet" class="heroButton">Find a Pet</a>
+      <div class="herosection">
+        <div class="introText">
+          <h1>Thinking of adding a new furry, scaly, or feathered member to your family?</h1>
+          <p>One of the most important things to think about when adopting a pet is where you will be taking them to the vet. On Pet + Vet you can find animals to adopt in your area and veterinarians near you.</p>
+          <a href="#findapet" class="heroButton">Find a Pet</a>
+        </div>
       </div>
+      <div class="overlay">
     </div>
     <div class="slide slide1"></div>
     <div class="slide slide2"></div>
@@ -25,20 +27,20 @@
     <div class="slide slide4"></div>
     <div class="slide slide5"></div>
     </main>
-    <div id="findapet" class="animalForm">
-    <form>
+    <div class="animalForm">
+    <form id="findapet">
       <label><h2>What type of animal are you looking for?</h2></label>
       <div class="animalType">
         <input type="radio" value="reptile" id="reptile" name="typeOfAnimal" required>
-        <label class="animal reptile radioImage" for="reptile"></label>
+        <label class="animal reptile radioImage" for="reptile" title="reptile"></label>
         <input type="radio" value="cat" id="cat" name="typeOfAnimal">
-        <label class="animal cat radioImage" for="cat"></label>
+        <label class="animal cat radioImage" for="cat" title="cat"></label>
         <input type="radio" value="dog" id="dog" name="typeOfAnimal">
-        <label class="animal dog radioImage" for="dog"></label>
+        <label class="animal dog radioImage" for="dog" title="dog"></label>
         <input type="radio" value="smallfurry" id="smallfurry" name="typeOfAnimal">
-        <label class="animal smallfurry radioImage" for="smallfurry"></label>
+        <label class="animal smallfurry radioImage" for="smallfurry" title="small and furry"></label>
         <input type="radio" value="bird" id="bird" name="typeOfAnimal">
-        <label class="animal bird radioImage" for="bird"></label>
+        <label class="animal bird radioImage" for="bird" title="bird"></label>
       </div>
       <label><h2>What is your location?</h2></label>
       <div class="locationFilter">
@@ -49,31 +51,31 @@
         <div class="animalSize">
       <label><h2>Size of Animal</h2></label>
       <input type="radio" name="sizeOfAnimal" value="S" id="small">
-      <label class="size small radioImage" for="small"></label>
+      <label class="size small radioImage" for="small" title="small"></label>
       <input type="radio" name="sizeOfAnimal" value="M" id="medium">
-      <label class="size medium radioImage" for="medium"></label>
+      <label class="size medium radioImage" for="medium" title="medium"></label>
       <input type="radio" name="sizeOfAnimal" value="L" id="large">
-      <label class="size large radioImage" for="large"></label>
+      <label class="size large radioImage" for="large" title="large"></label>
       <input type="radio" name="sizeOfAnimal" value="XL" id="extralarge">
-      <label class="size extralarge radioImage" for="extralarge"></label>
+      <label class="size extralarge radioImage" for="extralarge" title="extra large"></label>
     </div>
     <div class="mfDiv">
       <label><h2>Sex of Animal</h2></label>
       <input type="radio" name="sexOfAnimal" value="F" id="female">
-      <label class="sex female radioImage" for="female"></label>
+      <label class="sex female radioImage" for="female" title="female"></label>
       <input type="radio" name="sexOfAnimal" value="M" id="male">
-      <label class="sex male radioImage" for="male"></label>
+      <label class="sex male radioImage" for="male" title="male"></label>
     </div>
     <div class="animalAgeDiv">
       <label><h2>Age of Animal</h2></label>
       <input type="radio" name="ageOfAnimal" value="Baby" id="baby">
-      <label class="age baby radioImage" for="baby"></label>
+      <label class="age baby radioImage" for="baby" title="baby"></label>
       <input type="radio" name="ageOfAnimal" value="Young" id="young">
-      <label class="age young radioImage" for="young"></label>
+      <label class="age young radioImage" for="young" title="young"></label>
       <input type="radio" name="ageOfAnimal" value="Adult" id="adult">
-      <label class="age adult radioImage" for="adult"></label>
+      <label class="age adult radioImage" for="adult" title="adult"></label>
       <input type="radio" name="ageOfAnimal" value="Senior" id="senior">
-      <label class="age senior radioImage" for="senior"></label>
+      <label class="age senior radioImage" for="senior" title="senior"></label>
     </div>
   </div>
   <div class="formbuttons">
@@ -81,13 +83,13 @@
       <button class="reset" type="reset">Reset Form</button>
 </div>
     </form>
-  <div class="petvetbuttons hidden">
-    <a href="#pets">View pet results </a>
+  <div class="petvetbuttons hidden" id="petvetbuttons">
+    <a href="#petResults">View pet results </a>
     <a href="#map">View vets near you </a>
   </div>
   </div>
     <section>
-      <div class="petResults hidden">
+      <div class="petResults hidden" id="petResults">
         <div class="gotovetresultsdiv">
         <a href="#map" class="fixedVetButton">View Vet<br>Results<br></a>
       </div>
@@ -103,7 +105,7 @@
     </div>
     </section>
     <div class="scrollbackdiv">
-      <a href="#top" title="back to top"></a>
+      <a href="#findapet" title="back to top"></a>
     </div>
     <div class="lightboxcontainer"></div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

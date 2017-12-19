@@ -119,7 +119,40 @@ function createMarker(place) {
       }
       console.log(result);
       var infoWindow = new google.maps.InfoWindow();
-      infoWindow.setContent(`<p>${result.name}</p><p>${result.formatted_address}</p><p><a href="tel:${result.formatted_phone_number}">${result.formatted_phone_number}</a></p>`);
+      let website = result.website;
+      let rating = result.rating;
+      console.log(website);
+      if (website == undefined && rating == undefined) {
+        infoWindow.setContent(`<div class="infowindow">
+        <h4>${result.name}</h4>
+        <p>${result.formatted_address}</p>
+        <p><strong>phone:</strong> <a href="tel:${result.formatted_phone_number}">${result.formatted_phone_number}</a></p>
+        </div>`);
+      } else if (website == undefined) {
+        infoWindow.setContent(`<div class="infowindow">
+        <h4>${result.name}</h4>
+        <p>${result.formatted_address}</p>
+        <p><strong>phone:</strong> <a href="tel:${result.formatted_phone_number}">${result.formatted_phone_number}</a></p>
+        <p class="rating"><strong>Rating</strong></p>
+        <p>${result.rating}/5</p>
+        </div>`);
+      } else if (rating == undefined) {
+        infoWindow.setContent(`<div class="infowindow">
+        <h4>${result.name}</h4>
+        <p>${result.formatted_address}</p>
+        <p><strong>phone:</strong> <a href="tel:${result.formatted_phone_number}">${result.formatted_phone_number}</a></p>
+        <p><a href="${result.website}">${result.website}</a></p>
+        </div>`);
+      } else {
+        infoWindow.setContent(`<div class="infowindow">
+        <h4>${result.name}</h4>
+        <p>${result.formatted_address}</p>
+        <p><strong>phone:</strong> <a href="tel:${result.formatted_phone_number}">${result.formatted_phone_number}</a></p>
+        <p><a href="${result.website}">${result.website}</a></p>
+        <p class="rating"><strong>Rating</strong></p>
+        <p>${result.rating}/5</p>
+        </div>`);
+      }
       infoWindow.open(map, marker);
     });
   });
