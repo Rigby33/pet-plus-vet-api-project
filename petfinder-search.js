@@ -172,19 +172,22 @@ function searchForAPet() {
     if (! $('.animalType > input').is(':checked')) {
       $('.required').show();
     }
-    let size = $('.animalSize > input:checked').val();
-    if (! $('.animalSize > input').is(':checked')) {
-      size = '';
-    }
-    let sex = $('.mfDiv > input:checked').val();
-    if (! $('.mfDiv > input').is(':checked')) {
-      sex = '';
-    }
+    let size = $('#sizeOfAnimal').val();
+    // let size = $('.animalSize > input:checked').val();
+    // if (! $('.animalSize > input').is(':checked')) {
+    //   size = '';
+    // }
+    let sex = $('#sexOfAnimal').val();
+    // let sex = $('.mfDiv > input:checked').val();
+    // if (! $('#sexOfAnimal').is(':checked')) {
+    //   sex = '';
+    // }
     let myLocation = $('.myLocation').val();
-    let age = $('.animalAgeDiv > input:checked').val();
-    if (! $('.animalAgeDiv > input').is(':checked')) {
-      age = '';
-    }
+    let age = $('#ageOfAnimal').val();
+    // let age = $('.animalAgeDiv > input:checked').val();
+    // if (! $('.animalAgeDiv > input').is(':checked')) {
+    //   age = '';
+    // }
     $('.petvetbuttons, .petResults').removeClass('hidden');
     $('.reset').fadeIn();
     let offset = 0;

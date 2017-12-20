@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
     <script src="https://use.fontawesome.com/e79a343372.js"></script>
     <link href="styles.css" rel="stylesheet"/>
   </head>
@@ -27,8 +27,8 @@
     <div class="slide slide4"></div>
     <div class="slide slide5"></div>
     </main>
-    <div class="animalForm">
-    <form id="findapet">
+    <div class="animalForm" id="findapet">
+    <form>
       <label><h2>What type of animal are you looking for?</h2></label>
       <div class="animalType">
         <input type="radio" value="reptile" id="reptile" name="typeOfAnimal" required>
@@ -49,33 +49,58 @@
     </div>
       <div class="hidden sizeAgeSex">
         <div class="animalSize">
-      <label><h2>Size of Animal</h2></label>
-      <input type="radio" name="sizeOfAnimal" value="S" id="small">
+      <!-- <label><h2>Size</h2></label> -->
+      <div class="dropdown">
+      <select name="sizeOfAnimal" id="sizeOfAnimal">
+        <option value="" selected>Size</option>
+        <option value="S">Small</option>
+        <option value="M">Medium</option>
+        <option value="L">Large</option>
+        <option value="XL">Extra Large</option>
+      </select>
+    </div>
+      <!-- <input type="radio" name="sizeOfAnimal" value="S" id="small">
       <label class="size small radioImage" for="small" title="small"></label>
       <input type="radio" name="sizeOfAnimal" value="M" id="medium">
       <label class="size medium radioImage" for="medium" title="medium"></label>
       <input type="radio" name="sizeOfAnimal" value="L" id="large">
       <label class="size large radioImage" for="large" title="large"></label>
       <input type="radio" name="sizeOfAnimal" value="XL" id="extralarge">
-      <label class="size extralarge radioImage" for="extralarge" title="extra large"></label>
+      <label class="size extralarge radioImage" for="extralarge" title="extra large"></label> -->
     </div>
     <div class="mfDiv">
-      <label><h2>Sex of Animal</h2></label>
-      <input type="radio" name="sexOfAnimal" value="F" id="female">
+      <!-- <label><h2>Gender</h2></label> -->
+      <div class="dropdown">
+      <select name="sexOfAnimal" id="sexOfAnimal">
+        <option value="" selected>Gender</option>
+        <option value="F">Female</option>
+        <option value="M">Male</option>
+      </select>
+    </div>
+      <!-- <input type="radio" name="sexOfAnimal" value="F" id="female">
       <label class="sex female radioImage" for="female" title="female"></label>
       <input type="radio" name="sexOfAnimal" value="M" id="male">
-      <label class="sex male radioImage" for="male" title="male"></label>
+      <label class="sex male radioImage" for="male" title="male"></label> -->
     </div>
     <div class="animalAgeDiv">
-      <label><h2>Age of Animal</h2></label>
-      <input type="radio" name="ageOfAnimal" value="Baby" id="baby">
+      <!-- <label><h2>Age</h2></label> -->
+      <div class="dropdown">
+      <select name="ageOfAnimal" id="ageOfAnimal">
+        <option value="" selected>Age</option>
+        <option value="Baby">Baby</option>
+        <option value="Young">Young</option>
+        <option value="Adult">Adult</option>
+        <option value="Senior">Senior</option>
+      </select>
+    </div>
+      <!-- <input type="radio" name="ageOfAnimal" value="Baby" id="baby">
       <label class="age baby radioImage" for="baby" title="baby"></label>
       <input type="radio" name="ageOfAnimal" value="Young" id="young">
       <label class="age young radioImage" for="young" title="young"></label>
       <input type="radio" name="ageOfAnimal" value="Adult" id="adult">
       <label class="age adult radioImage" for="adult" title="adult"></label>
       <input type="radio" name="ageOfAnimal" value="Senior" id="senior">
-      <label class="age senior radioImage" for="senior" title="senior"></label>
+      <label class="age senior radioImage" for="senior" title="senior"></label> -->
     </div>
   </div>
   <div class="formbuttons">

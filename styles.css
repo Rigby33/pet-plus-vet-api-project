@@ -5,9 +5,9 @@
 }
 
 body {
-  font-family: 'PT Sans', sans-serif;
-  font-size: 16px;
-  line-height: 25px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  line-height: 27px;
   background-color: #F4F4F4;
 }
 
@@ -23,7 +23,8 @@ a:hover {
 header {
   position: absolute;
   z-index: 4;
-  width: 100%
+  width: 100%;
+  margin-top: 50px;
 }
 
 header > img {
@@ -150,7 +151,7 @@ form {
   flex-direction: column;
   text-align: center;
   margin: 0 auto;
-  background: #ffffff;
+  background: #EAEAEA;
   padding: 100px 30px 60px 30px;
 }
 
@@ -165,10 +166,19 @@ input[type=text] {
   width:50%;
   padding:10px;
   font-size: 20px;
-  border-top: 2px solid #4885B0;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 5px 1px rgba(50,48,49,.15);
+  border: 0px;
+  margin-right: 10px
+  /*border-top: 2px solid #4885B0;
   border-bottom: 2px solid #4885B0;
-  border-left: 2px solid #4885B0;
-  border-right: 0px
+  border-left: 2px solid #4885B0;*/
+  /*border-right: 0px*/
+}
+
+input[type=text]:focus {
+  box-shadow: 0px 1px 5px 1px rgba(50,48,49,.3);
+  outline: none;
 }
 
 .animalType {
@@ -188,11 +198,14 @@ input[type=radio] {
 
 
 input:checked + .radioImage {
-  background-color: #D4E278;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 5px 1px rgba(50,48,49,.15);
+
 }
 
 input:focus + .radioImage {
-  background-color: #D4E278;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 5px 1px rgba(50,48,49,.15);
 }
 
 /* .animalAgeDiv > input[type=radio] {
@@ -203,28 +216,32 @@ input:focus + .radioImage {
 
 .radioImage {
   background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 200px;
-  width: 200px;
-  display: inline-block;
-  cursor: pointer;
-  border: 10px solid transparent;
-  padding: 20px;
-  border-radius: 50%;
-  animation-duration: 1.5s;
-  background-color: #ffffff;
-  margin: 0 20px;
-  transition: all .5s ease;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 150px;
+    width: 200px;
+    display: inline-block;
+    cursor: pointer;
+    border: 10px solid transparent;
+    /* padding: 20px; */
+    /* border-radius: 50%; */
+    animation-duration: 1.5s;
+    /* background-color: #ffffff; */
+    margin: 0 20px;
+    transition: all .5s ease;
 }
 
-.size, .sex, .age {
+/*.size, .sex, .age {
   height: 100px;
   width: 100px
-}
+}*/
+
+
 
 .radioImage:hover {
-  background-color: #D3E179;
+
+  background-color: #ffffff;
+  box-shadow: 0px 1px 5px 1px rgba(50,48,49,.15);
   /* border: 10px solid #4885B0; */
   /* animation-name: updownanimation; */
 }
@@ -294,6 +311,7 @@ input:focus + .radioImage {
   transition: all .5s ease;
   border: 2px solid #ED5E36;
   cursor: pointer;
+  box-shadow: 0px 1px 5px 1px rgba(50,48,49,.15);
 }
 
 .filters:hover {
@@ -328,7 +346,54 @@ input:focus + .radioImage {
 
 .sizeAgeSex {
   margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
 }
+
+select, option {
+  -webkit-appearance : none; /* To gain control over the appearance on WebKit/Chromium */
+-moz-appearance : none; /* To gain control over the appearance on Gecko */
+
+/* To gain control over the appearance on and Trident (IE)
+   Note that it also works on Gecko and has partial effects on WebKit */
+background : none;
+}
+
+select {
+  padding:10px;
+  font-size: 20px;
+  border: 0px;
+  display: block;
+  border-radius: 0px;
+  width: 100%
+}
+
+.dropdown {
+  box-shadow: 0px 1px 5px 1px rgba(50,48,49,.15);
+  background: #ffffff;
+  position: relative;
+  width: 100%;
+  margin: 0 auto
+}
+
+.dropdown:after {
+  content: '\f078';
+  font-family: "FontAwesome";
+  position: absolute;
+  font-size: 20px;
+  bottom:10px;
+  right:10px
+}
+
+option {
+  border-radius: 0px;
+  background-color: #ffffff;
+  top:-50px;
+  position: relative;
+}
+
+
 
 .small {
   background-image: url(images/small.png)
@@ -402,6 +467,8 @@ input:focus + .radioImage {
   display: none;
 }
 
+
+
 .petvetbuttons {
   display: flex;
   justify-content: center;
@@ -412,27 +479,32 @@ input:focus + .radioImage {
   flex-wrap: wrap;
 }
 
+
 .petvetbuttons > a {
-  padding: 15px 20px;
-  background-color: #ffffff;
-  color: #ED5E36;
+  padding: 20px 25px;
+  border: 2px solid #ed5e36;
+  display: inline-block;
+  color: #ffffff;
   text-decoration: none;
-  font-size: 1.1em;
+  font-size: 1.3em;
   text-transform: uppercase;
-  transition: all .5s ease;
+  transition: all 1s ease;
+  animation-duration: 2.5s;
+  animation-timing-function: ease;
   width: 20%;
-  border: 2px solid #ED5E36;
-  cursor: pointer;
+  margin: 0 10px
 }
 
 .petvetbuttons > a:hover {
-  background-color: #ED5E36;
-  color: #ffffff;
+  animation-name: colorchange;
+  background-color: #4885b0;
+  border: 2px solid #4885b0;
+  color: #ffffff
 }
 
-.petvetbuttons > a:first-of-type {
-    border-right:0px;
-}
+/*.petvetbuttons > a:first-of-type {
+    margin-right: 10px
+}*/
 
 .petvetbuttons > a:first-of-type:after {
   content: '\f1b0';
@@ -556,6 +628,8 @@ h4 {
   margin: 0 5px 40px 5px;
   background-color: #ffffff;
   color: #333333;
+  box-shadow: 0px 1px 15px 1px rgba(50,48,49,.10);
+
 }
 
 .pet > p > a {
@@ -747,6 +821,7 @@ display: block;
   float: left;
   margin: 0 auto;
   padding: 0 20px;
+  width: 30%
 }
 
 .sizeAgeSex > div > .radioImage {
@@ -765,7 +840,7 @@ input:checked + .sizeAgeSex > div > .radioImage {
 .scrollbackdiv {
   display: none;
   position: fixed;
-  z-index: 5;
+  z-index: 7;
   bottom: 40px;
   right: 20px;
 }
