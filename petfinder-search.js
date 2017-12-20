@@ -1,7 +1,7 @@
 const petfinderApiUrl = 'http://api.petfinder.com/pet.find?';
 const petfinderApiKey = '9efdec91ddde1fb83e7d7af7fb5f03ee';
 
-function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, pickAge, offset, callback) {
+function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, pickAge, count, callback) {
   const paramsObj = {
     format: 'json',
     key: petfinderApiKey,
@@ -10,8 +10,8 @@ function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, p
     sex: pickSex,
     location: enterLocation,
     age: pickAge,
-    // offset: '30',
-    count: 30,
+    // offset: offset,
+    count: count,
     output: 'full',
     callback: '?',
   };
@@ -152,10 +152,12 @@ function handlePets(results) {
 function returnResults(data) {
   const petResults = data.petfinder.pets.pet;
   let numberOfPets = data.petfinder.lastOffset.$t;
-  // console.log(numberOfPets);
-  // let next = Number(numberOfPets);
-  // nextResults(next);
-  // previousResults(next);
+  let integerOfPets = Number(numberOfPets);
+  console.log(integerOfPets);
+  let next = integerOfPets + 30;
+  nextResults(next);
+  let previous = integerOfPets - 30;
+  previousResults(previous);
   if (numberOfPets == '1') {
     let petfinderResults = handlePets(petResults);
     $('.results').html(petfinderResults);
@@ -173,74 +175,49 @@ function searchForAPet() {
       $('.required').show();
     }
     let size = $('#sizeOfAnimal').val();
-    // let size = $('.animalSize > input:checked').val();
-    // if (! $('.animalSize > input').is(':checked')) {
-    //   size = '';
-    // }
     let sex = $('#sexOfAnimal').val();
-    // let sex = $('.mfDiv > input:checked').val();
-    // if (! $('#sexOfAnimal').is(':checked')) {
-    //   sex = '';
-    // }
     let myLocation = $('.myLocation').val();
     let age = $('#ageOfAnimal').val();
-    // let age = $('.animalAgeDiv > input:checked').val();
-    // if (! $('.animalAgeDiv > input').is(':checked')) {
-    //   age = '';
-    // }
     $('.petvetbuttons, .petResults').removeClass('hidden');
     $('.reset').fadeIn();
-    let offset = 0;
+    let count = 30;
     let elmnt = document.getElementById('petvetbuttons');
     elmnt.scrollIntoView({behavior: 'smooth', block: "start"});
-    getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
+    getDataFromPetfinderApi(animal, size, sex, myLocation, age, count, returnResults);
   });
 }
 
 
-// function nextResults(offset) {
-//   $('.petResults').on('click', '.next', function() {
-//     let animal = $('.animalType > input:checked').val();
-//     let size = $('.animalSize > input:checked').val();
-//     if (! $('.animalSize > input').is(':checked')) {
-//       size = '';
-//     }
-//     let sex = $('.mfDiv > input:checked').val();
-//     if (! $('.mfDiv > input').is(':checked')) {
-//       sex = '';
-//     }
-//     let myLocation = $('.myLocation').val();
-//     let age = $('.animalAgeDiv > input:checked').val();
-//     if (! $('.animalAgeDiv > input').is(':checked')) {
-//       age = '';
-//     }
-//       debugger;
-//     console.log(offset);
-//     offset = Number(numberOfPets);
-//     getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
-//   });
-// }
-//
-// function previousResults(offset) {
-//   $('.petResults').on('click', '.previous', function(event) {
-//     let animal = $('.animalType > input:checked').val();
-//     let size = $('.animalSize > input:checked').val();
-//     if (! $('.animalSize > input').is(':checked')) {
-//       size = '';
-//     }
-//     let sex = $('.mfDiv > input:checked').val();
-//     if (! $('.mfDiv > input').is(':checked')) {
-//       sex = '';
-//     }
-//     let myLocation = $('.myLocation').val();
-//     let age = $('.animalAgeDiv > input:checked').val();
-//     if (! $('.animalAgeDiv > input').is(':checked')) {
-//       age = '';
-//     }
-//     offset -= 25;
-//     console.log(offset);
-//     getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
-//   });
-// }
+function nextResults(count) {
+  $('.petResults').on('click', '.next', function() {
+    let animal = $('.animalType > input:checked').val();
+    if (! $('.animalType > input').is(':checked')) {
+      $('.required').show();
+    }
+    let size = $('#sizeOfAnimal').val();
+    let sex = $('#sexOfAnimal').val();
+    let myLocation = $('.myLocation').val();
+    let age = $('#ageOfAnimal').val();
+    console.log(count);
+    // count = Number(numberOfPets);
+    getDataFromPetfinderApi(animal, size, sex, myLocation, age, count, returnResults);
+  });
+}
+
+function previousResults(count) {
+  $('.petResults').on('click', '.next', function() {
+    let animal = $('.animalType > input:checked').val();
+    if (! $('.animalType > input').is(':checked')) {
+      $('.required').show();
+    }
+    let size = $('#sizeOfAnimal').val();
+    let sex = $('#sexOfAnimal').val();
+    let myLocation = $('.myLocation').val();
+    let age = $('#ageOfAnimal').val();
+    console.log(count);
+    // count = Number(numberOfPets);
+    getDataFromPetfinderApi(animal, size, sex, myLocation, age, count, returnResults);
+  });
+}
 
 $(searchForAPet);

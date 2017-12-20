@@ -19,6 +19,8 @@
           <a href="#findapet" class="heroButton">Find a Pet</a>
         </div>
       </div>
+      </main>
+      <div class="slideShow">
       <div class="overlay">
     </div>
     <div class="slide slide1"></div>
@@ -26,10 +28,13 @@
     <div class="slide slide3"></div>
     <div class="slide slide4"></div>
     <div class="slide slide5"></div>
-    </main>
-    <div class="animalForm" id="findapet">
+  </div>
+    <!-- <div class="animalForm hidden" id="findapet"> -->
+      <div class="animalForm" id="findapet">
     <form>
       <label><h2>What type of animal are you looking for?</h2></label>
+      <div class="formwrapper">
+      <div class="animalTypeWrapper">
       <div class="animalType">
         <input type="radio" value="reptile" id="reptile" name="typeOfAnimal" required>
         <label class="animal reptile radioImage" for="reptile" title="reptile"></label>
@@ -42,14 +47,16 @@
         <input type="radio" value="bird" id="bird" name="typeOfAnimal">
         <label class="animal bird radioImage" for="bird" title="bird"></label>
       </div>
-      <label><h2>What is your location?</h2></label>
-      <div class="locationFilter">
+    </div>
+    <!-- <div class="locationdiv"> -->
+      <!-- <label><h2>What is your location?</h2></label> -->
+      <!-- <div class="locationFilter"> -->
       <input type="text" class="myLocation" placeholder="City, State or Zip Code" required>
       <button class="filters">More Filters</button>
-    </div>
+    <!-- </div> -->
+  <!-- </div> -->
       <div class="hidden sizeAgeSex">
         <div class="animalSize">
-      <!-- <label><h2>Size</h2></label> -->
       <div class="dropdown">
       <select name="sizeOfAnimal" id="sizeOfAnimal">
         <option value="" selected>Size</option>
@@ -59,17 +66,8 @@
         <option value="XL">Extra Large</option>
       </select>
     </div>
-      <!-- <input type="radio" name="sizeOfAnimal" value="S" id="small">
-      <label class="size small radioImage" for="small" title="small"></label>
-      <input type="radio" name="sizeOfAnimal" value="M" id="medium">
-      <label class="size medium radioImage" for="medium" title="medium"></label>
-      <input type="radio" name="sizeOfAnimal" value="L" id="large">
-      <label class="size large radioImage" for="large" title="large"></label>
-      <input type="radio" name="sizeOfAnimal" value="XL" id="extralarge">
-      <label class="size extralarge radioImage" for="extralarge" title="extra large"></label> -->
     </div>
     <div class="mfDiv">
-      <!-- <label><h2>Gender</h2></label> -->
       <div class="dropdown">
       <select name="sexOfAnimal" id="sexOfAnimal">
         <option value="" selected>Gender</option>
@@ -77,13 +75,8 @@
         <option value="M">Male</option>
       </select>
     </div>
-      <!-- <input type="radio" name="sexOfAnimal" value="F" id="female">
-      <label class="sex female radioImage" for="female" title="female"></label>
-      <input type="radio" name="sexOfAnimal" value="M" id="male">
-      <label class="sex male radioImage" for="male" title="male"></label> -->
     </div>
     <div class="animalAgeDiv">
-      <!-- <label><h2>Age</h2></label> -->
       <div class="dropdown">
       <select name="ageOfAnimal" id="ageOfAnimal">
         <option value="" selected>Age</option>
@@ -93,19 +86,12 @@
         <option value="Senior">Senior</option>
       </select>
     </div>
-      <!-- <input type="radio" name="ageOfAnimal" value="Baby" id="baby">
-      <label class="age baby radioImage" for="baby" title="baby"></label>
-      <input type="radio" name="ageOfAnimal" value="Young" id="young">
-      <label class="age young radioImage" for="young" title="young"></label>
-      <input type="radio" name="ageOfAnimal" value="Adult" id="adult">
-      <label class="age adult radioImage" for="adult" title="adult"></label>
-      <input type="radio" name="ageOfAnimal" value="Senior" id="senior">
-      <label class="age senior radioImage" for="senior" title="senior"></label> -->
     </div>
   </div>
   <div class="formbuttons">
-      <button type="submit" class="submit">Submit</button>
+      <button type="submit" class="submit">Search</button>
       <button class="reset" type="reset">Reset Form</button>
+</div>
 </div>
     </form>
   <div class="petvetbuttons hidden" id="petvetbuttons">
@@ -119,13 +105,12 @@
         <a href="#map" class="fixedVetButton">View Vet<br>Results<br></a>
       </div>
       <div class="results" id="pets"></div>
-      <!-- <div class="moreresults">
+      <div class="moreresults">
       <button class="previous"> Previous</button>
       <button class="next">Next </button>
-    </div> -->
+    </div>
     </div>
     <div id="vetResults">
-      <!-- <h2>Veterinarians near you</h2> -->
       <div id="map"></div>
     </div>
     </section>

@@ -1,28 +1,19 @@
-$(document).ready(function(){
-  // Add smooth scrolling to all links
+// smooth scroll to anchors
+function smoothScroll() {
   $("a").on('click', function(event) {
-
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
+    if (this.hash !== '') {
       event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      let hash = this.hash;
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 900, function(){
-
-        // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
-    } // End if
+    }
   });
-});
+}
 
+// expand and collapse pet descriptions
 function expandDescription() {
   $('.results').on('click', '.clickToExpand', function (event) {
     $(this).siblings('p').slideToggle();
@@ -31,7 +22,7 @@ function expandDescription() {
   });
 }
 
-
+// background slide show
 function slideShow() {
   let activeDiv = 1;
   showDiv(activeDiv);
@@ -44,13 +35,28 @@ function slideShow() {
     }
     showDiv(activeDiv);
   }
-
   function showDiv(num) {
-    $('.slide').fadeOut(3000); // hide all
-    $('.slide' + num).fadeIn(1000); // show active
+    $('.slide').fadeOut(3000);
+    $('.slide' + num).fadeIn(1000);
   }
 }
 
+function slideOutHeroSection() {
+  $('.heroButton').on('click', function() {
+    $('.herosection').slideUp();
+    $('header').slideUp();
+    $('main').slideUp();
+    $('.slideShow').slideUp(function() {
+      $('.slideShow').addClass('fullheight');
+    });
+    $('.overlay').addClass('darker');
+    $('.animalForm').slideUp(function() {
+      $(this).removeClass('hidden');
+    });
+  });
+}
+
+// show more filtering options on form
 function moreFilterOptions() {
   $('.filters').on('click', function(event) {
     event.preventDefault();
@@ -63,16 +69,20 @@ function moreFilterOptions() {
   })
 }
 
-$(window).scroll(function() {
-  if($(this).scrollTop() > 2000) {
-    $('.scrollbackdiv').fadeIn();
-    $('.gotovetresultsdiv').fadeIn();
-  } else {
-    $('.scrollbackdiv').fadeOut();
-    $('.gotovetresultsdiv').fadeOut();
-  }
-});
+// fade in and out scroll to top button and go to vet results button
+function fadeinOnScroll() {
+  $(window).scroll(function() {
+    if($(this).scrollTop() > 2000) {
+      $('.scrollbackdiv').fadeIn();
+      $('.gotovetresultsdiv').fadeIn();
+    } else {
+      $('.scrollbackdiv').fadeOut();
+      $('.gotovetresultsdiv').fadeOut();
+    }
+  });
+}
 
+// light box function
 function lightboxRun() {
   $('.results').on('click', '.petnameandphoto .petlink', function (event) {
     event.preventDefault();
@@ -85,6 +95,7 @@ function lightboxRun() {
   });
 }
 
+// close lightbox function
 function closeLightBox () {
   $('.lightbox').on('click', '.close', function (event) {
     $('.lightbox').fadeOut();
@@ -93,7 +104,12 @@ function closeLightBox () {
     $('.lightbox').fadeOut();
   });
 }
+
+// run all of the functions
+$(slideOutHeroSection);
 $(lightboxRun);
+$(fadeinOnScroll);
 $(moreFilterOptions);
 $(slideShow);
 $(expandDescription);
+$(smoothScroll);
