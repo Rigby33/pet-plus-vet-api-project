@@ -61,10 +61,8 @@ function moreFilterOptions() {
   $('.filters').on('click', function(event) {
     event.preventDefault();
     $(this).toggleClass('showFilters');
-    $('.sizeAgeSex').toggleClass('hidden');
-    // $('.sizeAgeSex').slideToggle(function() {
-    //   $('.sizeAgeSex').toggleClass('hidden');
-    // });
+    // $('.sizeAgeSex').toggleClass('hidden');
+    $('.sizeAgeSex').parent().slideToggle();
     // $('.sizeAgeSex').toggleClass('flexDisplay');
   })
 }
@@ -105,7 +103,19 @@ function closeLightBox () {
   });
 }
 
+function revealSearchButton() {
+  $('form').on('click', function() {
+    let textInput = $('.myLocation').val();
+  if($('.animalType > input').is(':checked')) {
+    $('.formbuttons').slideDown(function() {$('.formbuttons').removeClass('hidden')}
+  );
+  }
+});
+}
+
 // run all of the functions
+
+$(revealSearchButton);
 $(slideOutHeroSection);
 $(lightboxRun);
 $(fadeinOnScroll);

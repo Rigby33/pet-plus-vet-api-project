@@ -187,18 +187,13 @@ label > h2 {
 }
 
 input[type=text] {
-  width:80%;
   padding:10px;
   font-size: 20px;
   background-color: #ffffff;
   box-shadow: 0px 1px 5px 1px rgba(50,48,49,.15);
   border: 0px;
   margin-right: 10px;
-  margin-top: 30px
-  /*border-top: 2px solid #4885B0;
-  border-bottom: 2px solid #4885B0;
-  border-left: 2px solid #4885B0;*/
-  /*border-right: 0px*/
+  width: 60%;
 }
 
 input[type=text]:focus {
@@ -213,8 +208,10 @@ input[type=text]:focus {
 }
 
 .animalTypeWrapper {
-  background: #6290C8;
+  /* background: linear-gradient(#DE9E36 90%,#BF892E); */
+  background: #DE9E36;
   width: 100%;
+  padding: 15px 0
 }
 
 input[type=radio] {
@@ -227,7 +224,7 @@ input[type=radio] {
 }
 
 
-input:checked + .radioImage {
+/* input:checked + .radioImage {
   background-color: #ffffff;
   box-shadow: 0px 1px 5px 1px rgba(50,48,49,.15);
 
@@ -236,7 +233,7 @@ input:checked + .radioImage {
 input:focus + .radioImage {
   background-color: #ffffff;
   box-shadow: 0px 1px 5px 1px rgba(50,48,49,.15);
-}
+} */
 
 /* .animalAgeDiv > input[type=radio] {
   -webkit-appearance:radio;
@@ -248,17 +245,22 @@ input:focus + .radioImage {
   background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 150px;
-    width: 150px;
+    height: 140px;
+    width: 140px;
     display: inline-block;
     cursor: pointer;
     /* padding: 20px; */
-    /* border-radius: 50%; */
+    border-radius: 50%;
     animation-duration: 1.5s;
-    /* background-color: #ffffff; */
+    background-color: #ffffff;
     margin: 0 10px;
     transition: all .5s ease;
+    box-shadow: 0px 2px 5px 1px rgba(50,48,49,.3);
 }
+
+/* .radioImage:hover {
+  box-shadow: none;
+} */
 
 /*.size, .sex, .age {
   height: 100px;
@@ -287,48 +289,48 @@ input:focus + .radioImage {
 }
 
 .reptile {
-  background-image: url(images/snake-icon-bw.png);
+  background-image: url(images/snake-icon.png);
 }
 .reptile:hover {
   background-image: url(images/snake-icon.png);
 }
-input:focus + .reptile {
+input:focus + .reptile, input:checked + .reptile {
   background-image: url(images/snake-icon.png);
 }
 .cat {
-  background-image: url(images/cat-icon-bw.png);
+  background-image: url(images/cat-icon.png);
 }
 .cat:hover {
   background-image: url(images/cat-icon.png);
 }
-input:focus + .cat {
+input:focus + .cat, input:checked + .cat {
   background-image: url(images/cat-icon.png);
 }
 .dog {
-  background-image: url(images/dog-icon-bw.png);
+  background-image: url(images/dog-icon.png);
 }
 .dog:hover {
   background-image: url(images/dog-icon.png);
 }
-input:focus + .dog {
+input:focus + .dog, input:checked + .dog {
   background-image: url(images/dog-icon.png);
 }
 .smallfurry {
-  background-image: url(images/mouse-icon-bw.png);
+  background-image: url(images/mouse-icon.png);
 }
 .smallfurry:hover {
   background-image: url(images/mouse-icon.png);
 }
-input:focus + .smallfurry {
+input:focus + .smallfurry, input:checked + .smallfurry {
   background-image: url(images/mouse-icon.png);
 }
 .bird {
-  background-image: url(images/bird-icon-bw.png);
+  background-image: url(images/bird-icon.png);
 }
 .bird:hover {
   background-image: url(images/bird-icon.png);
 }
-input:focus + .bird {
+input:focus + .bird, input:checked + .bird {
   background-image: url(images/bird-icon.png);
 }
 
@@ -340,20 +342,21 @@ input:focus + .bird {
 
 .filters {
   padding: 15px 20px;
-  background-color: #ffffff;
-  color: #ED5E36;
+  background-color: #6290C7;
+  color: #ffffff;
   text-decoration: none;
-  font-size: 1.1em;
+  font-size: 1em;
   text-transform: uppercase;
   transition: all .5s ease;
-  border: 2px solid #ED5E36;
+  /* border: 2px solid #ED5E36; */
+  border:0px;
   cursor: pointer;
+  width: 20%;
   box-shadow: 0px 1px 5px 1px rgba(50,48,49,.15);
-  float: left;
 }
 
 .filters:hover {
-  background-color: #ED5E36;
+  background-color: #DD9D38;
   color: #ffffff;
 }
 
@@ -370,24 +373,31 @@ input:focus + .bird {
 }
 
 .showFilters {
-  background-color: #ED5E36;
+  background-color: #DD9D38;
   color: #ffffff;
 }
 
-.locationFilter {
+.locationFilterWrapper {
   display: flex;
   justify-content: center;
-  margin: 0 auto 60px auto;
-  width: 80%;
+  margin: 30px auto 30px auto;
+  width: 100%;
   flex-wrap: wrap;
   flex-direction: row
 }
 
-.sizeAgeSex {
-  margin: 0 auto;
-  width: 80%;
+/* .morefilters {
   display: flex;
-  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  margin: 20px 0 0 0
+} */
+
+.sizeAgeSex {
+  margin: 0 auto 30px;
+  width: 81%;
+  display: flex;
+  justify-content: space-between;
 }
 
 select, option {
@@ -405,7 +415,8 @@ select {
   border: 0px;
   display: block;
   border-radius: 0px;
-  width: 100%
+  width: 100%;
+  color: #6D6A75
 }
 
 .dropdown {
@@ -432,47 +443,10 @@ option {
   position: relative;
 }
 
-
-
-.small {
-  background-image: url(images/small.png)
-}
-
-.medium {
-  background-image: url(images/medium.png)
-}
-
-.large {
-  background-image: url(images/large.png)
-}
-
-.extralarge {
-  background-image: url(images/extralarge.png)
-}
-
-.female {
-  background-image: url(images/female.png)
-}
-
-.male {
-  background-image: url(images/male.png)
-}
-
-
-.baby {
-  background-image: url(images/baby.png)
-}
-
-.young {
-  background-image: url(images/young.png)
-}
-
-.adult {
-  background-image: url(images/adult.png)
-}
-
-.senior {
-  background-image: url(images/senior.png)
+.formbuttons {
+  width: 100%;
+  /* margin: 30px 0 30px 0 */
+  margin-bottom: 30px
 }
 
 .formbuttons > button {
@@ -484,7 +458,6 @@ option {
   border: 0px;
   cursor: pointer;
   transition: all .5s ease;
-  float: left;
 }
 
 .formbuttons > button:hover {
@@ -858,23 +831,7 @@ display: block;
 }
 
 .animalSize, .mfDiv, .animalAgeDiv {
-  float: left;
-  margin: 0 auto;
-  padding: 0 20px;
-  width: 30%
-}
-
-.sizeAgeSex > div > .radioImage {
-    margin: 0 5px;
-    border-width: 5px;
-}
-
-input:checked + .sizeAgeSex > div > .radioImage {
-  border-width: 5px
-}
-
-.sizeAgeSex > div > .radioImage:hover {
-  border-width: 5px
+  width: 32%;
 }
 
 .scrollbackdiv {

@@ -48,14 +48,13 @@
         <label class="animal bird radioImage" for="bird" title="bird"></label>
       </div>
     </div>
-    <!-- <div class="locationdiv"> -->
-      <!-- <label><h2>What is your location?</h2></label> -->
-      <!-- <div class="locationFilter"> -->
+    <div class="locationFilterWrapper">
       <input type="text" class="myLocation" placeholder="City, State or Zip Code" required>
       <button class="filters">More Filters</button>
-    <!-- </div> -->
-  <!-- </div> -->
-      <div class="hidden sizeAgeSex">
+    </div>
+      <!-- <div class="morefilters"> -->
+      <div class="hidden">
+      <div class="sizeAgeSex">
         <div class="animalSize">
       <div class="dropdown">
       <select name="sizeOfAnimal" id="sizeOfAnimal">
@@ -86,12 +85,14 @@
         <option value="Senior">Senior</option>
       </select>
     </div>
+  </div>
     </div>
   </div>
-  <div class="formbuttons">
+  <div class="formbuttons hidden">
       <button type="submit" class="submit">Search</button>
       <button class="reset" type="reset">Reset Form</button>
-</div>
+    </div>
+<!-- </div> -->
 </div>
     </form>
   <div class="petvetbuttons hidden" id="petvetbuttons">
