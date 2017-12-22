@@ -1,4 +1,4 @@
-const petfinderApiUrl = 'http://api.petfinder.com/pet.find?';
+const petfinderApiUrl = 'https://api.petfinder.com/pet.find?';
 const petfinderApiKey = '9efdec91ddde1fb83e7d7af7fb5f03ee';
 
 function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, pickAge, count, callback) {
