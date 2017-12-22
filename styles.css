@@ -896,6 +896,11 @@ p {
   display: none;
 }
 
+.lightboxcontainer {
+  position: fixed;
+  z-index: 10
+}
+
 .lightbox {
   position: fixed;
   top: 0;
