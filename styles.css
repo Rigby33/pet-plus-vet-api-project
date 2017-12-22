@@ -8,10 +8,11 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 18px;
   line-height: 27px;
+  color: #37323e
 }
 
 a {
-  color: #ed5e36;
+  color: #de9e36;
   text-decoration: none;
 }
 
@@ -21,7 +22,7 @@ a:hover {
 
 header {
   position: absolute;
-  z-index: 4;
+  z-index: 3;
   width: 100%;
   margin-top: 50px;
 }
@@ -34,14 +35,14 @@ header > img {
 
 main {
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   height: 900px;
   width: 100%
 }
 
 .herosection {
   position: absolute;
-  z-index: 4
+  z-index: 4;
 }
 
 .introText {
@@ -65,27 +66,24 @@ h1 {
 
 .heroButton {
   padding: 20px 25px;
-  border: 2px solid #ed5e36;
+  border: 2px solid #DE9E36;
   display: inline-block;
   color: #ffffff;
   text-decoration: none;
   font-size: 1.3em;
   text-transform: uppercase;
-  transition: all 1s ease;
-  animation-duration: 2.5s;
-  animation-timing-function: ease;
+  transition: all .5s ease-in-out;
 }
 
 .heroButton:hover {
-  animation-name: colorchange;
-  background-color: #4885b0;
-  border: 2px solid #4885b0;
-  color: #ffffff
+  background-color: #9fb31b;
+  border: 2px solid #9fb31b;
+  color: #ffffff;
 }
 
 .heroButton:after {
   content: '\f002';
-  margin-left: 5px;
+  margin-left: 10px;
   margin-bottom: 10px;
   font-family: "FontAwesome";
 }
@@ -94,7 +92,7 @@ h1 {
   height: 900px;
   width: 100%;
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .fullheight {
@@ -143,22 +141,10 @@ h1 {
   background: url(images/parrot-slide.jpg) center center/cover no-repeat;
 }
 
-/* Animations */
-
-@keyframes colorchange {
-  0%{background-color: #ed5e36; border: 2px solid #ed5e36}
-  20%{background-color: #9FB31B; border: 2px solid #9FB31B}
-  40%{background-color: #4885b0; border: 2px solid #4885b0}
-  60%{background-color: #ed5e36; border: 2px solid #ed5e36}
-  80%{background-color: #9FB31B; border: 2px solid #9FB31B}
-  100%{background-color: #4885b0; border: 2px solid #4885b0}
-}
-
 .animalForm {
-  padding: 100px 0;
-  /* background: linear-gradient(#161616, #323031); */
+  padding: 40px 0;
   position: relative;
-  z-index: 6;
+  z-index: 2;
 }
 
 form {
@@ -167,7 +153,7 @@ form {
   flex-direction: column;
   text-align: center;
   margin: 0 auto;
-  padding: 100px 30px 60px 30px;
+  padding: 100px 30px 0 30px;
 }
 
 .formwrapper {
@@ -194,10 +180,11 @@ input[type=text] {
   border: 0px;
   margin-right: 10px;
   width: 60%;
+  transition: background-color .5s ease;
 }
 
 input[type=text]:focus {
-  box-shadow: 0px 1px 5px 1px rgba(50,48,49,.3);
+  background: url('images/line.png') bottom center repeat-x #ffffff;
   outline: none;
 }
 
@@ -211,7 +198,7 @@ input[type=text]:focus {
   /* background: linear-gradient(#DE9E36 90%,#BF892E); */
   background: #DE9E36;
   width: 100%;
-  padding: 15px 0
+  padding: 25px 0 20px
 }
 
 input[type=radio] {
@@ -288,6 +275,15 @@ input:focus + .radioImage {
 	}
 }
 
+input:focus + .radioImage, input:checked + .radioImage {
+  background-color: #ede488;
+  outline: none;
+}
+
+.radioImage:hover {
+  background-color: #ede488
+}
+
 .reptile {
   background-image: url(images/snake-icon.png);
 }
@@ -342,21 +338,26 @@ input:focus + .bird, input:checked + .bird {
 
 .filters {
   padding: 15px 20px;
-  background-color: #6290C7;
+  background-color: #9fb31b;
   color: #ffffff;
   text-decoration: none;
   font-size: 1em;
   text-transform: uppercase;
-  transition: all .5s ease;
-  /* border: 2px solid #ED5E36; */
+  transition: background-color .5s ease;
+  /* border: 2px solid #de9e36; */
   border:0px;
   cursor: pointer;
   width: 20%;
   box-shadow: 0px 1px 5px 1px rgba(50,48,49,.15);
 }
 
+.filters:focus {
+  outline: none;
+  background: url('images/line.png') bottom center repeat-x #9fb31b;
+}
+
 .filters:hover {
-  background-color: #DD9D38;
+  background-color: #879918;
   color: #ffffff;
 }
 
@@ -375,6 +376,15 @@ input:focus + .bird, input:checked + .bird {
 .showFilters {
   background-color: #DD9D38;
   color: #ffffff;
+}
+
+.showFilters:focus {
+outline: none;
+background: url('images/line.png') bottom center repeat-x #DD9D38;
+}
+
+.showFilters:hover {
+  background-color: #879918;
 }
 
 .locationFilterWrapper {
@@ -419,6 +429,11 @@ select {
   color: #6D6A75
 }
 
+select:focus {
+  background: url('images/line.png') bottom center repeat-x #ffffff;
+  outline: none;
+}
+
 .dropdown {
   box-shadow: 0px 1px 5px 1px rgba(50,48,49,.15);
   background: #ffffff;
@@ -426,6 +441,7 @@ select {
   width: 100%;
   margin: 0 auto
 }
+
 
 .dropdown:after {
   content: '\f078';
@@ -460,9 +476,6 @@ option {
   transition: all .5s ease;
 }
 
-.formbuttons > button:hover {
-  background-color: #ED5E36
-}
 
 /* .formbuttons {
   display: flex;
@@ -475,11 +488,18 @@ option {
   background-color: #9FB31B;
 }
 
+.submit:hover {
+  background-color: #879918
+}
+
 .reset {
-  background-color: #4885B0;
+  background-color: #de9e36;
   display: none;
 }
 
+.reset:hover {
+  background-color: #ab7929;
+}
 
 
 .petvetbuttons {
@@ -488,31 +508,30 @@ option {
   margin: 0 auto;
   width: 100%;
   text-align: center;
-  padding: 100px 20px 15px;
+  padding: 60px 0 100px 0;
   flex-wrap: wrap;
+  z-index: 2;
+  position: relative;
 }
 
 
 .petvetbuttons > a {
   padding: 20px 25px;
-  border: 2px solid #ed5e36;
+  border: 2px solid #DE9E36;
   display: inline-block;
   color: #ffffff;
   text-decoration: none;
   font-size: 1.3em;
   text-transform: uppercase;
   transition: all 1s ease;
-  animation-duration: 2.5s;
-  animation-timing-function: ease;
-  width: 20%;
+  /*width: 20%;*/
   margin: 0 10px
 }
 
 .petvetbuttons > a:hover {
-  animation-name: colorchange;
-  background-color: #4885b0;
-  border: 2px solid #4885b0;
-  color: #ffffff
+  background-color: #9fb31b;
+  border: 2px solid #9fb31b;
+  color: #ffffff;
 }
 
 /*.petvetbuttons > a:first-of-type {
@@ -535,7 +554,7 @@ option {
 
 section {
   position: relative;
-  z-index: 6;
+  z-index: 2;
 }
 
 #map {
@@ -598,7 +617,7 @@ h4 {
 
 .fixedVetButton {
   padding: 15px 20px;
-  background-color: #ED5E36;
+  background-color: #de9e36;
   color: #ffffff;
   text-decoration: none;
   font-size: 1.1em;
@@ -630,7 +649,7 @@ h4 {
 .petResults {
   padding: 100px 250px;
   background: #EAEAEA;
-  /* background: linear-gradient(#1d5073, #ed5e36); */
+  /* background: linear-gradient(#1d5073, #de9e36); */
    /* background: url(images/linebackground.jpg) repeat; */
   /* background: url(images/furbackground.jpg) repeat; */
   width: 100%;
@@ -647,7 +666,7 @@ h4 {
 
 .pet > p > a {
   text-decoration: none;
-  color: #ed5e36;
+  color: #de9e36;
   font-weight: bold;
 }
 
@@ -657,23 +676,23 @@ h4 {
 
 .petImage {
   height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    margin: 20px auto;
-
+  width: 250px;
+  border-radius: 50%;
+  margin: 20px auto;
+  box-shadow: 0px 1px 15px 1px rgba(50,48,49,.10);
 }
 
 
 .petimageoverlay {
   height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    margin: 20px auto;
-    transition: all .5s ease;
+  width: 250px;
+  border-radius: 50%;
+  margin: 20px auto;
+  transition: all .5s ease;
 }
 
 .petimageoverlay:hover {
-  background-color: #ed5e36;
+  background-color: #de9e36;
   opacity: .5
 }
 
@@ -686,7 +705,7 @@ h4 {
   width: 250px;
   position: absolute;
   border-radius: 50%;
-  background-color: #ed5e36;
+  background-color: #de9e36;
   content: '';
   top: 0;
   display: none;
@@ -697,10 +716,10 @@ h4 {
 } */
 
 .petnameandphoto > h2 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   padding: 20px 15px;
-  background-color: #679436;
-  color: #ffffff;
+  /*background-color: #de9e36;*/
+  color: #de9e36;
   text-transform: uppercase
 }
 
@@ -712,15 +731,15 @@ h3 {
 .petDescription {
   position: relative;
   width: 100%;
+  border-bottom: 4px solid #de9e36;
 }
 
 .petDescription > p {
   display: none;
-  margin: 20px 15px;
   font-size: 1em;
   max-height: 200px;
   overflow-y: scroll;
-  padding:20px 15px 20px 20px;
+  padding:0 15px 20px;
 }
 
 /* width */
@@ -735,12 +754,12 @@ h3 {
 
 /* Handle */
 .petDescription > p::-webkit-scrollbar-thumb {
-    background: #4884AF;
+    background: #9FB31B;
 }
 
 /* Handle on hover */
 .petDescription > p::-webkit-scrollbar-thumb:hover {
-    background: #366d94;
+    background: #de9e36;
 }
 
 .pet > p {
@@ -756,19 +775,17 @@ p {
 }
 
 .clickToExpand {
-  width: 100%;
-border: none;
-border-radius: 0px;
-padding: 15px;
-text-align: left;
-background-color: #9FB31B;
-color: #ffffff;
-cursor: pointer;
-text-transform: uppercase;
-font-size: 1em;
-/* top: 0; */
-/* z-index: 10; */
-display: block;
+  border: none;
+  border-radius: 0px;
+  padding: 15px;
+  text-align: left;
+  background-color: #9FB31B;
+  color: #ffffff;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1em;
+  display: block;
+  margin: 0 15px 20px;
 }
 
 .clickToExpand::after {
@@ -782,7 +799,7 @@ display: block;
 }
 
 .active {
-  background-color: #679436;
+  background-color: #879918;
 }
 
 .moreresults {
@@ -793,7 +810,7 @@ display: block;
 
 .moreresults > button {
   padding: 20px;
-  border: 2px solid #ed5e36;
+  border: 2px solid #de9e36;
   display: inline-block;
   color: #ffffff;
   text-decoration: none;
@@ -802,7 +819,7 @@ display: block;
   transition: all 1s ease;
   animation-duration: 2.5s;
   animation-timing-function: ease;
-  background-color: #ed5e36
+  background-color: #de9e36
 }
 
 .moreresults > button:hover {
@@ -887,7 +904,7 @@ display: block;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
-  z-index: 5;
+  z-index: 7;
 }
 
 .close {
@@ -903,13 +920,13 @@ display: block;
 }
 
 .close:hover{
-  color: #ed5e36;
+  color: #de9e36;
   background-color: transparent;
   padding: 0
 }
 
 .close:focus{
-  color: #ed5e36;
+  color: #de9e36;
   background-color: transparent;
   padding: 0
 }
@@ -992,7 +1009,7 @@ bottom: 0;
 @media screen and (max-width: 767px) {
   header {
     position: relative;
-    background-color: #ed5e36
+    background-color: #de9e36
   }
   header > img {
     width: 40%;
@@ -1057,7 +1074,7 @@ bottom: 0;
     width: 100%;
   }
   .petvetbuttons > a:first-of-type {
-    border-right: 2px solid #ED5E36;
+    border-right: 2px solid #de9e36;
     border-bottom: 0px;
   }
   .petResults {

@@ -43,14 +43,13 @@ function slideShow() {
 
 function slideOutHeroSection() {
   $('.heroButton').on('click', function() {
-    $('.herosection').slideUp();
-    $('header').slideUp();
-    $('main').slideUp();
-    $('.slideShow').slideUp(function() {
+    $('.herosection').slideUp('slow');
+    $('header').slideUp('slow');
+    $('main').slideUp('slow');
+    $('.slideShow').slideUp('slow', function() {
       $('.slideShow').addClass('fullheight');
     });
-    $('.overlay').addClass('darker');
-    $('.animalForm').slideUp(function() {
+    $('.animalForm').slideUp('slow', function() {
       $(this).removeClass('hidden');
     });
   });

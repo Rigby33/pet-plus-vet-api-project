@@ -10,9 +10,8 @@ function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, p
     sex: pickSex,
     location: enterLocation,
     age: pickAge,
-    // offset: offset,
-    count: count,
-    output: 'full',
+    offset: count,
+    count: 30,
     callback: '?',
   };
   let queryParams = buildQueryString(paramsObj);
@@ -47,7 +46,7 @@ function handlePets(results) {
       <h2>${results.name.$t}</h2>
       </div>
       <div class="petDescription">
-      <button class="clickToExpand">View more details</button>
+      <button class="clickToExpand">learn more</button>
       <p>${results.description.$t}</p>
     </div>
       <h3>Contact Info</h3>
@@ -105,7 +104,7 @@ function handlePets(results) {
         <h2>${results.name.$t}</h2>
         </div>
         <div class="petDescription">
-        <button class="clickToExpand">View more details</button>
+        <button class="clickToExpand">learn more</button>
         <p>${results.description.$t}</p>
       </div>
         <h3>Contact Info</h3>
@@ -122,7 +121,7 @@ function handlePets(results) {
         <h2>${results.name.$t}</h2>
         </div>
         <div class="petDescription">
-        <button class="clickToExpand">View more details</button>
+        <button class="clickToExpand">learn more</button>
         <p>${results.description.$t}</p>
       </div>
         <h3>Contact Info</h3>
@@ -139,7 +138,7 @@ function handlePets(results) {
         <h2>${results.name.$t}</h2>
         </div>
         <div class="petDescription">
-        <button class="clickToExpand">View more details</button>
+        <button class="clickToExpand">learn more</button>
         <p>${results.description.$t}</p>
       </div>
         <h3>Contact Info</h3>
@@ -153,11 +152,11 @@ function returnResults(data) {
   const petResults = data.petfinder.pets.pet;
   let numberOfPets = data.petfinder.lastOffset.$t;
   let integerOfPets = Number(numberOfPets);
-  console.log(integerOfPets);
-  let next = integerOfPets + 30;
-  nextResults(next);
-  let previous = integerOfPets - 30;
-  previousResults(previous);
+  // let next = integerOfPets + 30;
+  nextResults(integerOfPets);
+  // let previous = integerOfPets - 30;
+  previousResults(integerOfPets);
+  // previousResults(previous);
   if (numberOfPets == '1') {
     let petfinderResults = handlePets(petResults);
     $('.results').html(petfinderResults);
@@ -180,15 +179,17 @@ function searchForAPet() {
     let age = $('#ageOfAnimal').val();
     $('.petvetbuttons, .petResults').removeClass('hidden');
     $('.reset').fadeIn();
-    let count = 30;
+    // let count = 30;
+    let count = 0;
     let elmnt = document.getElementById('petvetbuttons');
     elmnt.scrollIntoView({behavior: 'smooth', block: "start"});
     getDataFromPetfinderApi(animal, size, sex, myLocation, age, count, returnResults);
   });
 }
 
+// new page of results effect
 
-function nextResults(count) {
+function nextResults(offset) {
   $('.petResults').on('click', '.next', function() {
     let animal = $('.animalType > input:checked').val();
     if (! $('.animalType > input').is(':checked')) {
@@ -198,14 +199,14 @@ function nextResults(count) {
     let sex = $('#sexOfAnimal').val();
     let myLocation = $('.myLocation').val();
     let age = $('#ageOfAnimal').val();
-    console.log(count);
-    // count = Number(numberOfPets);
-    getDataFromPetfinderApi(animal, size, sex, myLocation, age, count, returnResults);
+    offset += 30;
+    console.log(offset);
+    getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
   });
 }
 
-function previousResults(count) {
-  $('.petResults').on('click', '.next', function() {
+function previousResults(offset) {
+  $('.petResults').on('click', '.previous', function() {
     let animal = $('.animalType > input:checked').val();
     if (! $('.animalType > input').is(':checked')) {
       $('.required').show();
@@ -214,10 +215,43 @@ function previousResults(count) {
     let sex = $('#sexOfAnimal').val();
     let myLocation = $('.myLocation').val();
     let age = $('#ageOfAnimal').val();
-    console.log(count);
-    // count = Number(numberOfPets);
-    getDataFromPetfinderApi(animal, size, sex, myLocation, age, count, returnResults);
+    offset -= 30;
+    console.log(offset);
+    getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
   });
 }
+
+// infinite scroll type effect
+
+// function nextResults(count) {
+//   $('.petResults').on('click', '.next', function() {
+//     let animal = $('.animalType > input:checked').val();
+//     if (! $('.animalType > input').is(':checked')) {
+//       $('.required').show();
+//     }
+//     let size = $('#sizeOfAnimal').val();
+//     let sex = $('#sexOfAnimal').val();
+//     let myLocation = $('.myLocation').val();
+//     let age = $('#ageOfAnimal').val();
+//     console.log(count);
+//     getDataFromPetfinderApi(animal, size, sex, myLocation, age, count, returnResults);
+//   });
+// }
+//
+//
+// function previousResults(count) {
+//   $('.petResults').on('click', '.previous', function() {
+//     let animal = $('.animalType > input:checked').val();
+//     if (! $('.animalType > input').is(':checked')) {
+//       $('.required').show();
+//     }
+//     let size = $('#sizeOfAnimal').val();
+//     let sex = $('#sexOfAnimal').val();
+//     let myLocation = $('.myLocation').val();
+//     let age = $('#ageOfAnimal').val();
+//     console.log(count);
+//     getDataFromPetfinderApi(animal, size, sex, myLocation, age, count, returnResults);
+//   });
+// }
 
 $(searchForAPet);
