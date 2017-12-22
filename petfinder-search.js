@@ -1,5 +1,6 @@
 const petfinderApiUrl = 'https://api.petfinder.com/pet.find?';
 const petfinderApiKey = '9efdec91ddde1fb83e7d7af7fb5f03ee';
+let offset = 0;
 
 function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, pickAge, count, callback) {
   const paramsObj = {
@@ -153,9 +154,9 @@ function returnResults(data) {
   let numberOfPets = data.petfinder.lastOffset.$t;
   let integerOfPets = Number(numberOfPets);
   // let next = integerOfPets + 30;
-  nextResults(integerOfPets);
+  // nextResults(integerOfPets);
   // let previous = integerOfPets - 30;
-  previousResults(integerOfPets);
+  // previousResults(integerOfPets);
   // previousResults(previous);
   if (numberOfPets == '1') {
     let petfinderResults = handlePets(petResults);
@@ -180,21 +181,17 @@ function searchForAPet() {
     $('.petvetbuttons, .petResults').removeClass('hidden');
     $('.reset').fadeIn();
     // let count = 30;
-    let count = 0;
+    offset = 0;
     let elmnt = document.getElementById('petvetbuttons');
     elmnt.scrollIntoView({behavior: 'smooth', block: "start"});
-    getDataFromPetfinderApi(animal, size, sex, myLocation, age, count, returnResults);
+    getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
   });
 }
 
 // new page of results effect
 
-function nextResults(offset) {
-  $('.petResults').on('click', '.next', function() {
+function nextResults() {
     let animal = $('.animalType > input:checked').val();
-    if (! $('.animalType > input').is(':checked')) {
-      $('.required').show();
-    }
     let size = $('#sizeOfAnimal').val();
     let sex = $('#sexOfAnimal').val();
     let myLocation = $('.myLocation').val();
@@ -202,15 +199,10 @@ function nextResults(offset) {
     offset += 30;
     console.log(offset);
     getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
-  });
 }
 
-function previousResults(offset) {
-  $('.petResults').on('click', '.previous', function() {
+function previousResults() {
     let animal = $('.animalType > input:checked').val();
-    if (! $('.animalType > input').is(':checked')) {
-      $('.required').show();
-    }
     let size = $('#sizeOfAnimal').val();
     let sex = $('#sexOfAnimal').val();
     let myLocation = $('.myLocation').val();
@@ -218,8 +210,12 @@ function previousResults(offset) {
     offset -= 30;
     console.log(offset);
     getDataFromPetfinderApi(animal, size, sex, myLocation, age, offset, returnResults);
-  });
 }
+
+$(function(){
+  $('.petResults').on('click', '.next', nextResults);
+  $('.petResults').on('click', '.previous', previousResults);
+});
 
 // infinite scroll type effect
 
