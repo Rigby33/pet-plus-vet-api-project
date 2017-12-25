@@ -141,7 +141,7 @@ function handlePets(results) {
     </div>
     <div class="contactInfo">
       <h3>Contact Info</h3>
-      <p>email: <a href="mailto:mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       </div>
     </div>`;
