@@ -772,7 +772,7 @@ p {
 }
 
 
-.moreresults > button {
+.moreresults > a {
   padding: 20px;
   display: inline-block;
   color: #ffffff;
@@ -782,9 +782,10 @@ p {
   transition: all 1s ease;
   background-color: #de9e36;
   cursor: pointer;
+  display: inline-block;
 }
 
-.moreresults > button:hover {
+.moreresults > a:hover {
   background-color: #ab7929;
 }
 
