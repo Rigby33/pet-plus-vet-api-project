@@ -50,7 +50,7 @@ function handlePets(results) {
       </div>
     <div class="contactInfo">
       <h3>Contact Info</h3>
-      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       </div>
     </div>`;
   } else if (results.description.$t == undefined && results.contact.email.$t == undefined) {
@@ -80,7 +80,7 @@ function handlePets(results) {
       </div>
     <div class="contactInfo">
       <h3>Contact Info</h3>
-      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       </div>
     </div>`;
   } else if (results.description.$t == undefined && results.media.photos == undefined) {
@@ -92,7 +92,7 @@ function handlePets(results) {
     </div>
     <div class="contactInfo">
       <h3>Contact Info</h3>
-      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       </div>
     </div>`;
@@ -109,7 +109,7 @@ function handlePets(results) {
     </div>
     <div class="contactInfo">
       <h3>Contact Info</h3>
-      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       </div>
     </div>`;
   } else if (results.media.photos == undefined && results.contact.email.$t == undefined) {
@@ -141,7 +141,7 @@ function handlePets(results) {
     </div>
     <div class="contactInfo">
       <h3>Contact Info</h3>
-      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      <p>email: <a href="mailto:mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       </div>
     </div>`;
@@ -180,7 +180,7 @@ function handlePets(results) {
     </div>
     <div class="contactInfo">
       <h3>Contact Info</h3>
-      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       </div>
     </div>`;
   } else {
@@ -199,7 +199,7 @@ function handlePets(results) {
     </div>
     <div class="contactInfo">
       <h3>Contact Info</h3>
-      <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+      <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       </div>
     </div>`;
@@ -238,7 +238,7 @@ function handlePets(results) {
 //       </div>
 //     <div class="contactInfo">
 //       <h3>Contact Info</h3>
-//       <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+//       <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
 //       </div>
 //     </div>`;
 //   } else if (results.media.photos == undefined) {
@@ -253,7 +253,7 @@ function handlePets(results) {
 //     </div>
 //     <div class="contactInfo">
 //       <h3>Contact Info</h3>
-//       <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+//       <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
 //       <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
 //       </div>
 //     </div>`;
@@ -269,7 +269,7 @@ function handlePets(results) {
 //     </div>
 //     <div class="contactInfo">
 //       <h3>Contact Info</h3>
-//       <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+//       <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
 //       <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
 //       </div>
 //     </div>`;
@@ -285,7 +285,7 @@ function handlePets(results) {
 //       </div>
 //       <div class="contactInfo contactBorder">
 //       <h3>Contact Info</h3>
-//       <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+//       <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
 //       </div>
 //     </div>`;
 //   } else if (results.contact.email.$t == undefined && results.description.$t == undefined) {
@@ -315,7 +315,7 @@ function handlePets(results) {
 //         </div>
 //         <div class="contactInfo contactBorder">
 //         <h3>Contact Info</h3>
-//         <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+//         <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
 //         <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
 //         </div>
 //       </div>`;
@@ -335,7 +335,7 @@ function handlePets(results) {
 //       </div>
 //       <div class="contactInfo">
 //         <h3>Contact Info</h3>
-//         <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+//         <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
 //         </div>
 //       </div>`;
 //     } else if (results.contact.email.$t == undefined) {
@@ -373,7 +373,7 @@ function handlePets(results) {
 //       </div>
 //       <div class="contactInfo">
 //         <h3>Contact Info</h3>
-//         <p>email: <a href="${results.contact.email.$t}">${results.contact.email.$t}</a></p>
+//         <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
 //         <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
 //         </div>
 //       </div>`;
