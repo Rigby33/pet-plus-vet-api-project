@@ -36,7 +36,7 @@ function handlePets(results) {
       </div>
       <h2>${results.name.$t}</h2>
       </div>
-    <div class="contactInfo">
+    <div class="contactInfo contactBorder">
       <h3>Contact Info</h3>
       <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       </div>
@@ -48,7 +48,7 @@ function handlePets(results) {
       </div>
       <h2>${results.name.$t}</h2>
       </div>
-    <div class="contactInfo">
+    <div class="contactInfo contactBorder">
       <h3>Contact Info</h3>
       <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       </div>
@@ -63,7 +63,7 @@ function handlePets(results) {
       </a>
       <h2>${results.name.$t}</h2>
       </div>
-    <div class="contactInfo">
+    <div class="contactInfo contactBorder">
       <h3>Contact Info</h3>
       <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
       </div>
@@ -78,7 +78,7 @@ function handlePets(results) {
       </a>
       <h2>${results.name.$t}</h2>
       </div>
-    <div class="contactInfo">
+    <div class="contactInfo contactBorder">
       <h3>Contact Info</h3>
       <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       </div>
@@ -90,7 +90,7 @@ function handlePets(results) {
     </div>
     <h2>${results.name.$t}</h2>
     </div>
-    <div class="contactInfo">
+    <div class="contactInfo contactBorder">
       <h3>Contact Info</h3>
       <p>email: <a href="mailto:${results.contact.email.$t}">${results.contact.email.$t}</a></p>
       <p>phone: <a href="tel:${results.contact.phone.$t}">${results.contact.phone.$t}</a></p>
