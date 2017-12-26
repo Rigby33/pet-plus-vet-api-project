@@ -30,7 +30,7 @@
     <div class="slide slide4"></div>
     <div class="slide slide5"></div>
   </div>
-    <div class="animalForm hidden" id="findapet">
+    <div class="animalForm hidden" id="findapet" aria-live="assertive" hidden>
     <form>
       <label><h2>What type of animal are you looking for?</h2></label>
       <div class="formwrapper">
@@ -49,7 +49,7 @@
       </div>
     </div>
     <div class="locationFilterWrapper">
-      <input type="text" class="myLocation" placeholder="City" required>
+      <div class="citywrapper"><input type="text" class="myLocation" placeholder="City" required></div>
       <div class="state">
       <div class="statewrapper">
       <select required class="stateSelect">

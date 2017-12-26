@@ -50,7 +50,7 @@ function slideOutHeroSection() {
       $('.slideShow').addClass('fullheight');
     });
     $('.animalForm').slideUp('slow', function() {
-      $(this).removeClass('hidden');
+      $(this).prop('hidden', false).removeClass('hidden');
     });
   });
 }
