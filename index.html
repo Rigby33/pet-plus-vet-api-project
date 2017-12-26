@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
     <script src="https://use.fontawesome.com/e79a343372.js"></script>
@@ -48,7 +49,64 @@
       </div>
     </div>
     <div class="locationFilterWrapper">
-      <input type="text" class="myLocation" placeholder="City, State or Zip Code" required>
+      <input type="text" class="myLocation" placeholder="City" required>
+      <div class="state">
+      <div class="statewrapper">
+      <select required class="stateSelect">
+        <option value="AL">AL</option>
+        <option value="AK">AK</option>
+        <option value="AR">AR</option>
+        <option value="AZ">AZ</option>
+        <option value="CA">CA</option>
+        <option value="CO">CO</option>
+        <option value="CT">CT</option>
+        <option value="DC">DC</option>
+        <option value="DE">DE</option>
+        <option value="FL">FL</option>
+        <option value="GA">GA</option>
+        <option value="HI">HI</option>
+        <option value="IA">IA</option>
+        <option value="ID">ID</option>
+        <option value="IL">IL</option>
+        <option value="IN">IN</option>
+        <option value="KS">KS</option>
+        <option value="KY">KY</option>
+        <option value="LA">LA</option>
+        <option value="MA">MA</option>
+        <option value="MD">MD</option>
+        <option value="ME">ME</option>
+        <option value="MI">MI</option>
+        <option value="MN">MN</option>
+        <option value="MO">MO</option>
+        <option value="MS">MS</option>
+        <option value="MT">MT</option>
+        <option value="NC">NC</option>
+        <option value="NE">NE</option>
+        <option value="NH">NH</option>
+        <option value="NJ">NJ</option>
+        <option value="NM">NM</option>
+        <option value="NV">NV</option>
+        <option value="NY">NY</option>
+        <option value="ND">ND</option>
+        <option value="OH">OH</option>
+        <option value="OK">OK</option>
+        <option value="OR">OR</option>
+        <option value="PA">PA</option>
+        <option value="RI">RI</option>
+        <option value="SC">SC</option>
+        <option value="SD">SD</option>
+        <option value="TN">TN</option>
+        <option value="TX">TX</option>
+        <option value="UT">UT</option>
+        <option value="VT">VT</option>
+        <option value="VA">VA</option>
+        <option value="WA">WA</option>
+        <option value="WI">WI</option>
+        <option value="WV">WV</option>
+        <option value="WY">WY</option>
+      </select>
+    </div>
+    </div>
       <button class="filters">More Filters</button>
     </div>
       <div class="hidden">
@@ -103,20 +161,20 @@
         <div class="gotovetresultsdiv">
         <a href="#map" class="fixedVetButton">View Vet<br>Results<br></a>
       </div>
-      <div class="results" id="pets"></div>
+      <div class="results" id="pets" aria-live="assertive" hidden></div>
       <div class="moreresults">
       <a class="previous" href="#petResults"> Previous</a>
       <a class="next" href="#petResults">Next </a>
     </div>
     </div>
-    <div id="vetResults">
+    <div id="vetResults" aria-live="assertive" hidden>
       <div id="map"></div>
     </div>
     </section>
     <div class="scrollbackdiv">
       <a href="#findapet" title="back to top"></a>
     </div>
-    <div class="lightboxcontainer"></div>
+    <div class="lightboxcontainer" aria-live="assertive" hidden></div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC3RlzZbzH_9ImAcjhqAaCBRT4en3gFFE&libraries=places&callback=initMap" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>

@@ -87,7 +87,7 @@ function lightboxRun() {
     let petimage = $(event.currentTarget).attr('href');
     let altTag = $(event.currentTarget).attr('title');
     const item = `<div class="lightbox"><button class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></button><img src="${petimage}" alt="${altTag}"/></div>`;
-    $('.lightboxcontainer').hide().html(item).fadeIn();
+    $('.lightboxcontainer').hide().prop('hidden', false).html(item).fadeIn();
     closeLightBox();
   });
 }
