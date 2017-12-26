@@ -28,7 +28,7 @@ header {
 }
 
 header > img {
-  width: 15%;
+  width: 20%;
   margin-left: 40px;
   margin-top: 20px
 }
@@ -549,11 +549,7 @@ section {
   padding:100px 30px;
 }
 
-#vetResults > h2 {
-}
-
-
-#description {
+/*#description {
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
@@ -561,7 +557,7 @@ section {
 
 #infowindow-content .title {
   font-weight: bold;
-}
+}*/
 
 #infowindow-content {
   display: none;
@@ -973,7 +969,7 @@ p {
 
 @media screen and (max-width: 1295px) {
   header > img {
-    width: 30%;
+    width: 20%;
   }
 form {
   width: 100%
@@ -1031,7 +1027,8 @@ form {
   }
   header > img {
     margin-left: 20px;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    width: 30%
   }
 
   main {
@@ -1124,6 +1121,12 @@ form {
   }
   .fixedVetButton {
     display: none;
+  }
+  #vetResults {
+    padding: 40px 10px
+  }
+  .infowindow {
+    font-size: 1em;
   }
   #map {
     height: 300px
