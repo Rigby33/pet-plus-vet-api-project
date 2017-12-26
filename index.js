@@ -49,8 +49,8 @@ function slideOutHeroSection() {
     $('.slideShow').slideUp('slow', function() {
       $('.slideShow').addClass('fullheight');
     });
-    $('.animalForm').slideUp('slow', function() {
-      $(this).prop('hidden', false).removeClass('hidden');
+    $('.animalForm').prop('hidden', false).slideUp('slow', function() {
+      $(this).removeClass('hidden');
     });
   });
 }
