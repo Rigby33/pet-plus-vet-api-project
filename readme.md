@@ -5,6 +5,12 @@ Pet Plus Vet is a tool where a user can search for adoptable pets and vets in th
 
 This website was made possible by using data pulled from two third party APIs. http://petfinder.com and http://maps.google.com (Google Maps Javascript API)
 
+## Technologies Used
+This website was built with HTML5, CSS3, JavaScript, and JQuery
+
+## Live url
+http://rigby33.github.io/pet-plus-vet-api-project
+
 ## Summary of Application
 
 When the website loads the user is greeted with the Pet Plus Vet logo, an attention grabbing headline, a short explanation of the website, and a button that the user will click once the area ready to find a pet.
@@ -32,9 +38,3 @@ If the user clicks "pet results" the page scrolls down to reveal all of the anim
 The user can also scroll down to the vet results. In the vet results section there is a google map with pin points for all of the vets near the searched city and state. The user can click on a pin and view the vet's contact information, rating, website, and the user can also get directions.
 
 ![vet results](https://rigby33.github.io/pet-plus-vet-api-project/images/image-8.jpg)
-
-## Technologies Used
-This website was built with HTML5, CSS3, JavaScript, and JQuery
-
-## Live url
-http://rigby33.github.io/pet-plus-vet-api-project
