@@ -3,7 +3,7 @@
 
 Pet Plus Vet is a tool where a user can search for adoptable pets and vets in their area. There's a saying that goes "if you can't afford the vet don't adopt the pet." The goal of this website is to drive home the importance of animal health care when adding a new member (pet) to your family.
 
-This website was made possible by using data pulled from two third party APIs. http://petfinder.com and http://maps.googlevet.com (Google Maps Javascript API)
+This website was made possible by using data pulled from two third party APIs. http://petfinder.com and http://maps.google.com (Google Maps Javascript API)
 
 ## Summary of Application
 
