@@ -1,0 +1,6 @@
+I have had multiple people test out multiple scenarios with my Pet Plus Vet website
+
+• User discovered that email links did not works
+• User discovered that entering just city name did not give pet results. I changed it so that entering city name AND state is required
+• User suggested adding website name to logo
+• User discovered that some descriptions for pets were "undefined"
