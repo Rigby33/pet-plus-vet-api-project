@@ -21,8 +21,8 @@ function getDataFromPetfinderApi(pickAnimal, pickSize, pickSex, enterLocation, p
 }
 
 function buildQueryString(myObject) {
-  let queryString = Object.keys(myObject).map( (e) => {
-      return e + '=' + myObject[e];
+  let queryString = Object.keys(myObject).map(key => {
+      return key + '=' + myObject[key];
   }
     ).join('&');
   return queryString;
