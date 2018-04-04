@@ -89,7 +89,7 @@ h1 {
 }
 
 .slideShow {
-  height: 900px;
+  height: 100vh;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -116,7 +116,7 @@ h1 {
 .slide {
   position: fixed;
   display: none;
-  height: 100%;
+  height: 100vh;
   width:100%;
   z-index: 1
 }
@@ -937,7 +937,7 @@ p {
 
 @media screen and (max-width: 1600px) {
   main, .overlay, .slide {
-    height: 800px;
+    height: 100vh;
   }
   .introText {
     width: 60%;
